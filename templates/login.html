@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% set page = "login" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="back"> <!-- Displays whether the user has logged in, logged out, failed to log in, etc. -->
+  <p>{{message}}</p>
+</div>
+{% endblock %}
