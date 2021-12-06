@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% set page = "information" %}
+
+{% block title %}Information{% endblock %}
+
+{% block content %}
+<div class="background">
+  <img src="static/images/welcome3.svg" alt="Welcome Photo" class="image">
+</div>
+<div class="triangle">
+  <img src="static/images/triangle.png" alt="Triangle Design" class="image">
+  <div class="centered"><b>Communicate with SBHS Staff and Other Parents for English Learners and Special Education</b></div>
+</div>
+<br><br><br>
+<div class = "infoBack"> <!-- The two boxes displaying info for SSEPAC and ELAC -->
+  <table class="boxes"> 
+    <tr class="noBorder">
+      <td class="ELAC">
+        <a href="https://www.cde.ca.gov/ta/cr/delac.asp" class="textStyle"> 
+          <p class="centered2 textStyle"><b>English Learner Advisory Committee</b></p>
+          <br>
+          <p class="textStyle">&nbsp;&nbsp;&nbsp;&nbsp;A district-level English Learner Advisory Committee comprised of parents, staff, and community members designated to advise district officials on English learner programs and services.</p>
+        </a>
+      </td>
+      <td class="emptySpace">
+      </td>
+      <td class="SSEPAC">
+        <a href="https://www.sbunified.org/academics/special-education" class="textStyle">
+          <p class="centered2"><b>Staff Special Education Parent Advisory Committee</b></p>
+          <br>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;The Santa Barbara Unified School District encourages parents of students with unique needs to partner with the district to enhance district-wide special education programs.</p>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
