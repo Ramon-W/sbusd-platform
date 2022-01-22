@@ -12,5 +12,9 @@ import pytz
 
 app = Flask(__name__)
 
+@app.route('/') 
+def render_login():
+    return render_template('login.html')
+                                                 
 if __name__ == "__main__":
     app.run()
