@@ -1,12 +1,12 @@
 from flask import Flask, redirect, Markup, url_for, session, request, jsonify
 from flask import render_template
 from flask_oauthlib.client import OAuth
-from bson.objectid import ObjectId
+#from bson.objectid import ObjectId
 
 import pprint
 import os
 import sys
-import pymongo
+#import pymongo
 from datetime import datetime, date, timedelta
 from pytz import timezone
 import pytz
