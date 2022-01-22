@@ -1,3 +1,7 @@
+requests
+oauthlib
+pyOpenSSL
+Flask-Login
 decorator
 Flask
 Flask-SQLAlchemy
