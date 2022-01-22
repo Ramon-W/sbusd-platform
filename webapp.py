@@ -79,7 +79,7 @@ def callback():
         users_name = userinfo_response.json()["given_name"]
     else:
         return "User email not available or not verified by Google.", 400
-    return redirect(url_for("login"))
+    return redirect(url_for("/"))
 
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json() #handle errors to google api call
