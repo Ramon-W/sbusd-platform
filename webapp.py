@@ -1,13 +1,7 @@
 from flask import Flask, redirect, Markup, url_for, session, request, jsonify
 from flask import render_template
 from flask_oauthlib.client import OAuth
-from flask_login import (
-    LoginManager,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-)
+
 from oauthlib.oauth2 import WebApplicationClient
 import requests
 
@@ -30,9 +24,6 @@ GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
-
-login_manager = LoginManager()
-login_manager.init_app(app)
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
