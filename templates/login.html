@@ -9,11 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Login - Santa Barbara High School</title>
   </head>
 
   <body>
     <p>Hello world!</p>
+    <div class="g-signin2" data-onsuccess="onSignIn" href="/login">Google Login</div>
     <a class="button" href="/login">Google Login</a>
   </body>
 </html>
