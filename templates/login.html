@@ -17,8 +17,5 @@
     <p>Hello world!</p>
     <div class="g-signin2" data-onsuccess="onSignIn" href="/login">Google Login</div>
     <a class="button" href="/login">Google Login</a>
-    {% if current_user.is_authenticated %}
-  Hi {{ current_user.name }}!
-{% endif %}
   </body>
 </html>
