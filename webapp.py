@@ -16,8 +16,19 @@ from pytz import timezone
 import pytz
 import json
 
+from flask_login import (
+    LoginManager,
+    current_user,
+    login_required,
+    login_user,
+    logout_user,
+)
+
 app = Flask(__name__)
 app.secret_key = os.environ["SECRET_KEY"]
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
 GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
@@ -26,6 +37,10 @@ GOOGLE_DISCOVERY_URL = (
 )
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
 
 @app.route('/') 
 def render_login():
