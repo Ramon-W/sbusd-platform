@@ -92,6 +92,7 @@ def callback():
         users_email = userinfo_response.json()["email"]
         picture = userinfo_response.json()["picture"]
         users_name = userinfo_response.json()["given_name"]
+        return users_name
         if not users_email.endswith("@my.sbunified.org") and not users_email.endswith("@sbunified.org"):
             return "User email not in domain", 401
     else:
