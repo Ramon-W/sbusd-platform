@@ -93,10 +93,11 @@ def callback():
         picture = userinfo_response.json()["picture"]
         users_name = userinfo_response.json()["name"]
         if not users_email.endswith("@my.sbunified.org") and not users_email.endswith("@sbunified.org"):
-            return "User email not in domain", 401
+            return "User email not in domain.", 401
     else:
         return "User email not available or not verified by Google.", 400
-    login_user(current_user)
+    user = User(id_=unique_id, name=users_name, email=users_email, profile_pic=picture)
+    login_user(user)
     return redirect(url_for("render_login"))
 
 def get_google_provider_cfg():
