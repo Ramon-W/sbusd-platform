@@ -4,6 +4,10 @@ from flask_oauthlib.client import OAuth
 
 from oauthlib.oauth2 import WebApplicationClient
 import requests
+import sqlite3
+
+from db import init_db_command
+from user import User
 
 #from bson.objectid import ObjectId
 
