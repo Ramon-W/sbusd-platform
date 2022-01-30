@@ -40,6 +40,12 @@ GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
 
+try:
+    init_db_command()
+except sqlite3.OperationalError:
+    # Assume it's already been created
+    pass
+
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 @login_manager.user_loader
@@ -100,8 +106,10 @@ def callback():
             return "User email not in domain.", 401
     else:
         return "User email not available or not verified by Google.", 400
-    #user = User(id_=unique_id, name=users_name, email=users_email, profile_pic=picture)
-    #login_user(user)
+    user = User(id_=unique_id, name=users_name, email=users_email, profile_pic=picture)
+    if not User.get(unique_id):
+        User.create(unique_id, users_name, users_email, picture)
+    login_user(user)
     return redirect(url_for("render_login"))
 
 def get_google_provider_cfg():
