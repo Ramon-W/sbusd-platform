@@ -65,7 +65,7 @@ def login():
     google_provider_cfg = get_google_provider_cfg()
     authorization_endpoint = google_provider_cfg["authorization_endpoint"]
 
-    # Use library to construct the request for login and provide
+    # Use library to construct the request for Google login and provide
     # scopes that let you retrieve user's profile from Google
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
@@ -74,20 +74,18 @@ def login():
     )
     return redirect(request_uri)
 
+@app.route("/login/callback")
+def callback():
     # Get authorization code Google sent back to you
     code = request.args.get("code")
-
-    # Find out what URL to hit to get tokens that allow you to ask for
-    # things on behalf of a user
     google_provider_cfg = get_google_provider_cfg()
     token_endpoint = google_provider_cfg["token_endpoint"]
-
-    # Prepare and send request to get tokens! Yay tokens!
+    
     token_url, headers, body = client.prepare_token_request(
         token_endpoint,
         authorization_response=request.url,
         redirect_url=request.base_url,
-        code=code,
+        code=code
     )
     token_response = requests.post(
         token_url,
