@@ -94,8 +94,8 @@ def callback():
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
             return "User email not in domain.", 401
-    else:
-        return "User email not available or not verified by Google.", 400
+    #else:
+    #    return "User email not available or not verified by Google.", 400
     session['unique_id'] = unique_id
     session['users_email'] = users_email
     session['picture'] = picture
