@@ -93,7 +93,7 @@ def callback():
         picture = userinfo_response.json()['picture']
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
-            resp = make_response(redirect(url_for('render_login'))
+            resp = make_response(render_template('login.html'))
             resp.set_cookie('sessionID', '', expires=0)
             return resp
     else:
