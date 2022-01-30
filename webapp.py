@@ -93,8 +93,9 @@ def callback():
         picture = userinfo_response.json()['picture']
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
+            resp = make_response(redirect(url_for('render_login'))
             resp.set_cookie('sessionID', '', expires=0)
-            return "User email not in domain.", 401
+            return resp
     else:
         return "User email not available or not verified by Google.", 400
     session['unique_id'] = unique_id
