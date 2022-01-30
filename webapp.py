@@ -43,11 +43,11 @@ login_manager.init_app(app)
 def unauthorized():
     return "You must be logged in to access this content.", 403
 
-try:
-    init_db_command()
-except sqlite3.OperationalError:
+#try:
+#    init_db_command()
+#except sqlite3.OperationalError:
     # Assume it's already been created
-    pass
+#    pass
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
