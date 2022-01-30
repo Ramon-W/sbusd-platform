@@ -2,7 +2,6 @@ requests
 Flask
 oauthlib
 pyOpenSSL
-Flask-Login
 decorator
 Flask-SQLAlchemy
 Flask-WTF
