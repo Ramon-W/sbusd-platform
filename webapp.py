@@ -29,6 +29,8 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 @app.route('/') 
 def render_login():
+    if session['unique_id'] != None:
+        return render_template('login.html', a = session['unique_id'], b = session['users_email'] = users_email, c = session['picture'], d = session['users_name'])
     return render_template('login.html')
 
 @app.route("/login")
