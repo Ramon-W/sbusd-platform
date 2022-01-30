@@ -107,5 +107,10 @@ def callback():
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json() #handle errors to google api call
     
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('render_login'))
+    
 if __name__ == '__main__':
     app.run()    
