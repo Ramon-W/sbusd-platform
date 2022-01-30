@@ -11,7 +11,7 @@ import requests
 
 import pprint
 import sys
-#import pymongo
+import pymongo
 from datetime import datetime, date, timedelta
 from pytz import timezone
 import pytz
@@ -21,6 +21,12 @@ GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
+
+connection_string = os.environ['MONGO_CONNECTION_STRING']
+db_name = os.environ['MONGO_DBNAME']
+client = pymongo.MongoClient(connection_string)
+db = client[db_name]
+collection = db['Users']
 
 app = Flask(__name__)
 app.secret_key = os.environ["SECRET_KEY"]
