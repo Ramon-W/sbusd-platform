@@ -1,22 +1,11 @@
 import json
 import os
-import sqlite3
 
 from flask import Flask, redirect, Markup, url_for, session, request, jsonify
 from flask import render_template
-from flask_login import (
-    LoginManager,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-)
 
 from oauthlib.oauth2 import WebApplicationClient
 import requests
-
-from db import init_db_command
-from user import User
 
 #from bson.objectid import ObjectId
 
@@ -36,24 +25,7 @@ GOOGLE_DISCOVERY_URL = (
 app = Flask(__name__)
 app.secret_key = os.environ["SECRET_KEY"]
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return "You must be logged in to access this content.", 403
-
-try:
-    init_db_command()
-except sqlite3.OperationalError:
-    Assume it's already been created
-    pass
-
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
 
 @app.route('/') 
 def render_login():
@@ -116,22 +88,7 @@ def callback():
             return "User email not in domain.", 401
     else:
         return "User email not available or not verified by Google.", 400
-    user = User(
-        id_=unique_id, name=users_name, email=users_email, profile_pic=picture
-    )
-    # Doesn't exist? Add to database
-    if not User.get(unique_id):
-        User.create(unique_id, users_name, users_email, picture)
-
-    # Begin user session by logging the user in
-    login_user(user)
     return redirect(url_for("render_login"))
-
-@app.route("/logout")
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for("index"))
 
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json() #handle errors to google api call
