@@ -44,7 +44,7 @@ def unauthorized():
     return "You must be logged in to access this content.", 403
 
 #try:
-#    init_db_command()
+init_db_command()
 #except sqlite3.OperationalError:
     # Assume it's already been created
 #    pass
