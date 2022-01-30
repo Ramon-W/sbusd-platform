@@ -24,21 +24,11 @@
   </head>
 
   <body>
-    <div class="col s12 m6 offset-m3 center-align">
-      <a class="oauth-container btn darken-4 white black-text" href="/users/google-oauth/" style="text-transform:none">
-        <div class="left">
-          <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-        </div>
-        Login with Google
+    <div id="log-in-button">
+      <a class="button" id="log-in-link" href="/login">
+        <img width="20px" id="google-logo" alt="Google" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+        Google Login
       </a>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <a class="btn btn-outline-dark" href="/users/googleauth" role="button" style="text-transform:none">
-          <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-          Login with Google
-        </a>
-      </div>
     </div>
     <a class="button" href="/login">Google Login</a>
     {{ a }}
