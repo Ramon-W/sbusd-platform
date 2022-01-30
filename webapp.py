@@ -88,6 +88,10 @@ def callback():
             return "User email not in domain.", 401
     else:
         return "User email not available or not verified by Google.", 400
+    Session['unique_id'] = unique_id
+    Session['users_email'] = users_email
+    Session['picture'] = picture
+    Session['users_name'] = users_name
     return redirect(url_for("render_login"))
 
 def get_google_provider_cfg():
