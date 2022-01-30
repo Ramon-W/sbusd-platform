@@ -57,17 +57,7 @@ def load_user(user_id):
 
 @app.route('/') 
 def render_login():
-    if current_user.is_authenticated:
-        return (
-            "<p>Hello, {}! You're logged in! Email: {}</p>"
-            "<div><p>Google Profile Picture:</p>"
-            '<img src="{}" alt="Google profile pic"></img></div>'
-            '<a class="button" href="/logout">Logout</a>'.format(
-                current_user.name, current_user.email, current_user.profile_pic
-            )
-        )
-    else:
-        return render_template('login.html')
+    return render_template('login.html')
 
 @app.route("/login")
 def login():
