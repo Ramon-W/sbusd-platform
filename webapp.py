@@ -38,7 +38,7 @@ def render_login():
     return render_template('login.html')
 
 def render_login_error(error):
-    return render_template('login.html', log_in_error = "Please use your school issued email")
+    return render_template('login.html', login_error = "Please use your school issued email")
 
 @app.route('/login')
 def login():
@@ -97,7 +97,7 @@ def callback():
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
             return redirect(url_for('render_login_error', error = "Please use your school issued email"))
     else:
-        return render_template('login.html', log_in_error = "Email not available or verified")
+        return render_template('login.html', login_error = "Email not available or verified")
     session['unique_id'] = unique_id
     session['users_email'] = users_email
     session['picture'] = picture
