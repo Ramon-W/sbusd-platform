@@ -1,12 +1,14 @@
 #log-in-container {
   margin: 0 auto;
+  margin-top: 100px;
   width: 400px;
   height: 500px;
   text-align: center;
   box-shadow: 0 4px 7px -2px gray;
+
 }
 #log-in-header {
-
+  padding-top: 30px;
 }
 #log-in-button {
 
@@ -38,5 +40,7 @@
 #log-in-footer {
   color: #dc3544;
 }
+
+
 
 
