@@ -38,6 +38,7 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 def render_login():
     return render_template('login.html')
 
+@app.route('/login_error')
 def render_login_error(error):
     return render_template('login.html', login_error = "Please use your school issued email")
 
