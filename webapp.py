@@ -1,7 +1,7 @@
 import json
 import os
 
-from flask import Flask, redirect, Markup, url_for, session, request, jsonify, make_response
+from flask import Flask, redirect, Markup, url_for, session, request, jsonify
 from flask import render_template
 
 from oauthlib.oauth2 import WebApplicationClient
@@ -51,6 +51,7 @@ def login():
         authorization_endpoint,
         redirect_uri=request.base_url + '/callback',
         scope=['openid', 'email', 'profile'],
+        prompt='consent'
     )
     return redirect(request_uri)
 
@@ -93,10 +94,7 @@ def callback():
         picture = userinfo_response.json()['picture']
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
-            resp = make_response(render_template('login.html'))
-            resp.set_cookie('sessionID', '', expires=0)
-            session.clear()
-            return resp
+            d = "d"
     else:
         return "User email not available or not verified by Google.", 400
     session['unique_id'] = unique_id
