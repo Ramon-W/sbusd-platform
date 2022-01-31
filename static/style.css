@@ -1,11 +1,15 @@
 #log-in-container {
   margin: 0 auto;
-  width: 350px;
+  width: 400px;
+  height: 500px;
+  border: 1px solid black;
+  text-align: center;
 }
 #log-in-header {
 
 }
 #log-in-button {
+  margin: auto;
   width: 230px;
   height: 40px;
   border: 1px solid black;
