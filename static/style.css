@@ -2,30 +2,28 @@
   margin: 0 auto;
   width: 400px;
   height: 500px;
-  border: 1px solid black;
+  box-shadow: 0 4px 7px -2px gray;
   text-align: center;
 }
 #log-in-header {
 
 }
 #log-in-button {
-  border: 1px solid black;
-  line-height: 34px;
-  text-align: center;
-  color: black;
-}
-#log-in-link {
-  display: inline-block;
   margin: auto;
   width: 230px;
   height: 40px;
+  box-shadow: 0 4px 7px -2px gray;
+  line-height: 36px;
+  border: 1px;
+  text-align: center;
+  background-color: white;
 }
-#log-in-link:hover {
-  text-decoration: none;
+#log-in-link {
+  color: black;
 }
 #google-logo {
   margin-right: 8px;
 }
 #log-in-footer {
-
+  color: #dc3544;
 }
