@@ -2,8 +2,8 @@
   margin: 0 auto;
   width: 400px;
   height: 500px;
-  box-shadow: 0 4px 7px -2px gray;
   text-align: center;
+  background-color: #fafffa;
 }
 #log-in-header {
 
@@ -17,9 +17,11 @@
   border: 1px;
   text-align: center;
   background-color: white;
-}
-#log-in-link {
   color: black;
+}
+#log-in-link:hover {
+  text-decoration: none;
+  background-color: aliceblue;
 }
 #google-logo {
   margin-right: 8px;
