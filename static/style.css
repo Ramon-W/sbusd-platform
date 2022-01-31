@@ -20,6 +20,7 @@
   color: black;
 }
 #log-in-button:hover {
+  transition: 0.2s;
   background-color: #fcfcfc;
 }
 #log-in-link:hover {
