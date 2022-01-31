@@ -19,6 +19,9 @@
   background-color: white;
   color: black;
 }
+#log-in-button:hover {
+  background-color: #fcfcfc;
+}
 #log-in-link:hover {
   text-decoration: none;
 }
