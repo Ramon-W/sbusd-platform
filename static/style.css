@@ -20,10 +20,6 @@
   color: black;
   border-radius: 3px;
 }
-#log-in-button:hover {
-  transition: 0.2s;
-  background-color: #fcfcfc;
-}
 #log-in-link:hover {
   text-decoration: none;
 }
