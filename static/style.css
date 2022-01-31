@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(aliceblue, purple);
+  background-image: linear-gradient(to bottom right, aliceblue, purple);
 }
 #log-in-container {
   margin: 0 auto;
