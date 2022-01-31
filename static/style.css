@@ -3,7 +3,7 @@
   width: 400px;
   height: 500px;
   text-align: center;
-  background-color: #fafffa;
+  box-shadow: 0 4px 7px -2px gray;
 }
 #log-in-header {
 
@@ -18,6 +18,7 @@
   text-align: center;
   background-color: white;
   color: black;
+  border-radius: 3px;
 }
 #log-in-button:hover {
   transition: 0.2s;
@@ -27,7 +28,7 @@
   text-decoration: none;
 }
 #google-logo {
-  margin-right: 8px;
+  margin-right: 10px;
 }
 #log-in-footer {
   color: #dc3544;
