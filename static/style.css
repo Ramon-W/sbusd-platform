@@ -9,15 +9,19 @@
 
 }
 #log-in-button {
-  margin: auto;
-  width: 230px;
-  height: 40px;
   border: 1px solid black;
   line-height: 34px;
   text-align: center;
+  color: black;
 }
 #log-in-link {
-  color: black;
+  display: inline-block;
+  margin: auto;
+  width: 230px;
+  height: 40px;
+}
+#log-in-link:hover {
+  text-decoration: none;
 }
 #google-logo {
   margin-right: 8px;
