@@ -1,1 +1,23 @@
+#log-in-container {
+  margin: 0 auto;
+  width: 350px;
+}
+#log-in-header {
 
+}
+#log-in-button {
+  width: 230px;
+  height: 40px;
+  border: 1px solid black;
+  line-height: 34px;
+  text-align: center;
+}
+#log-in-link {
+  color: black;
+}
+#google-logo {
+  margin-right: 8px;
+}
+#log-in-footer {
+
+}
