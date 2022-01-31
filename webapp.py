@@ -94,9 +94,9 @@ def callback():
         picture = userinfo_response.json()['picture']
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
-            d = "d"
+            return render_template('login.html', log_in_error = "Email not in authorized domain")
     else:
-        return "User email not available or not verified by Google.", 400
+        return render_template('login.html', log_in_error = "Email not available or verified")
     session['unique_id'] = unique_id
     session['users_email'] = users_email
     session['picture'] = picture
