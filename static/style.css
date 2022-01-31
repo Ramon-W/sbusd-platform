@@ -24,6 +24,9 @@
 #log-in-link:hover {
   text-decoration: none;
 }
+#log-in-link:link {
+  text-decoration: none;
+}
 #google-logo {
   margin-left: -20px;
   display: inline;
@@ -35,5 +38,4 @@
 #log-in-footer {
   color: #dc3544;
 }
-
 
