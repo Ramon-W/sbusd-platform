@@ -1,13 +1,10 @@
-body {
-  background-image: linear-gradient(to bottom right, aliceblue, purple);
-}
 #log-in-container {
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 80px;
   width: 400px;
-  height: 500px;
+  height: 200px;
   text-align: center;
-  box-shadow: 0 4px 7px -2px gray;
+  border: 1px solid black;
 
 }
 #log-in-header {
@@ -45,12 +42,3 @@ body {
   margin-top: 10px;
   color: #dc3544;
 }
-
-
-
-
-
-
-
-
-
