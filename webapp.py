@@ -37,7 +37,7 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 def render_login():
     return render_template('login.html')
 
-@app.route('/render_login_error')
+@app.route('/r')
 def render_login_error():
     return render_template('login.html', login_error = request.args.get('error'))
 
