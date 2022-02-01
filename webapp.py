@@ -39,10 +39,6 @@ def render_login():
         return render_template('login.html', login_error = request.args.get('error'))
     return render_template('login.html')
 
-@app.route('/r')
-def render_login_error():
-    return render_template('login.html', login_error = request.args.get('error'))
-
 @app.route('/login')
 def login():
     # Find out what URL to hit for Google login
@@ -100,7 +96,7 @@ def callback():
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
             return redirect(url_for('render_login', error = "Please use your school issued email"))
     else:
-        return redirect(url_for('render_login_error', error = "Email not available or verified"))
+        return redirect(url_for('render_login', error = "Email not available or verified"))
     session['unique_id'] = unique_id
     session['users_email'] = users_email
     session['picture'] = picture
