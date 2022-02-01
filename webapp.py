@@ -35,6 +35,8 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 @app.route('/') 
 def render_login():
+    if request.args.get('error') != None:
+        return render_template('login.html', login_error = request.args.get('error'))
     return render_template('login.html')
 
 @app.route('/r')
@@ -96,7 +98,7 @@ def callback():
         picture = userinfo_response.json()['picture']
         users_name = userinfo_response.json()['name']
         if not users_email.endswith('@my.sbunified.org') and not users_email.endswith('@sbunified.org'):
-            return redirect(url_for('render_login_error', error = "Please use your school issued email"))
+            return redirect(url_for('render_login', error = "Please use your school issued email"))
     else:
         return redirect(url_for('render_login_error', error = "Email not available or verified"))
     session['unique_id'] = unique_id
