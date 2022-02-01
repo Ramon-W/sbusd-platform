@@ -54,7 +54,6 @@ def login():
         redirect_uri=request.base_url + '/callback',
         scope=['openid', 'email', 'profile'],
         prompt='consent'
-        hd='my.sbunified.org'
     )
     return redirect(request_uri)
 
