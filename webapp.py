@@ -103,7 +103,7 @@ def callback():
     session['users_name'] = users_name
     if not collection.count_documents({ '_id': unique_id}, limit = 1):
         collection.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture})
-    return redirect(url_for('render_login'))
+    return redirect(url_for('render_main_page'))
 
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json() #handle errors to google api call
@@ -112,6 +112,10 @@ def get_google_provider_cfg():
 def logout():
     session.clear()
     return redirect(url_for('render_login'))
-    
+
+@app.route('/idk')
+def render_main_page():
+    return render_template('index.html')
+
 if __name__ == '__main__':
     app.run()    
