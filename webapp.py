@@ -113,7 +113,7 @@ def logout():
     session.clear()
     return redirect(url_for('render_login'))
 
-@app.route('/idk')
+@app.route('/sbhs')
 def render_main_page():
     return render_template('index.html')
 
