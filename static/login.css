@@ -3,12 +3,9 @@ body {
   width: 100%;
 }
 #background {
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  width: 100px;
-/*   background-size: cover; */
+  min-width: 100%;
+  min-width: 100%;
 }
-
 
 
 #log-in-container {
