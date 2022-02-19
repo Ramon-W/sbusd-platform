@@ -26,3 +26,4 @@ Flask-PyMongo
 pymongo
 dnspython
 pytz
+react
