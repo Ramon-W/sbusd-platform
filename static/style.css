@@ -12,8 +12,7 @@ img {
 }
 /* make images and create button undraggable */
 #background {
-  width: 100px;
-  height: 100px;
+  height: 100vh;
   background: url(images/temp-background.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -23,6 +22,7 @@ img {
 #create {
   float: right;
 }
+
 
 /* #content {
   width: 100%;
