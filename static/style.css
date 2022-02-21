@@ -18,14 +18,6 @@ img { /* make images and create button undraggable */
   -o-background-size: cover;
   background-size: cover;
 }
-
-
-/* #content {
-  width: 100%;
-  height: 1000px;
-  background-color: #dadce0;
-} */
-
 #footer {
   position: fixed;
   bottom: 0;
@@ -39,7 +31,7 @@ img { /* make images and create button undraggable */
   display: block;
   position: absolute;
   border: 50px solid transparent;
-  border-bottom: 50px solid #dadce0;
+  border-bottom: 50px solid black;
   top: -82px;
   right: -65px;
   transform: rotate(45deg);
@@ -64,7 +56,7 @@ img { /* make images and create button undraggable */
   border-radius: 2px;
   border: 1px solid #dadce0;
 }
-
+/* arrow key rolling between each space shown below */)
 #observe {
   display: inline-block;
   width: 58px;
@@ -75,7 +67,9 @@ img { /* make images and create button undraggable */
   border: 1px solid #dadce0;
 }
 #create {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+  float: right;
+  margin-right: 50px;
+  margin-top: 7px;
 }
