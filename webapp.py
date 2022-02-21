@@ -16,6 +16,8 @@ from datetime import datetime, date, timedelta
 from pytz import timezone
 import pytz
 
+from flask_socketio import SocketIO
+
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_CLIENT_SECRET = os.environ['GOOGLE_CLIENT_SECRET']
 GOOGLE_DISCOVERY_URL = (
@@ -30,6 +32,8 @@ collection = db['Users']
 
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
+
+socketio = SocketIO(app)
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
@@ -118,4 +122,4 @@ def render_main_page():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()    
+    socketio.run(app)    
