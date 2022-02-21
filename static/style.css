@@ -76,5 +76,6 @@ img { /* make images and create button undraggable */
 }
 #create {
   display: inline-block;
-  float: right;
+  width: 30px;
+  height: 30px;
 }
