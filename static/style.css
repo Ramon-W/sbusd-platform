@@ -1,17 +1,16 @@
-body {
+body { 
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-img {
+img { /* make images and create button undraggable */
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
-}
-/* make images and create button undraggable */
-#background {
+} 
+#background { /* Should background extend to full height or not including navbar at bottom? */
   height: 100vh;
   background: url(images/temp-background.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
