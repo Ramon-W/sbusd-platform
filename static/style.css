@@ -56,7 +56,7 @@ img { /* make images and create button undraggable */
   border-radius: 2px;
   border: 1px solid #dadce0;
 }
-/* arrow key rolling between each space shown below */)
+/* arrow key rolling between each space shown below */
 #observe {
   display: inline-block;
   width: 58px;
