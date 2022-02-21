@@ -19,6 +19,7 @@ img { /* make images and create button undraggable */
   background-size: cover;
 }
 #create {
+  display: inline-block;
   float: right;
 }
 
