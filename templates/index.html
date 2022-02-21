@@ -33,6 +33,15 @@
   </body>
   <script src="/socket.io/socket.io.js"></script>
   <script>
+    import { createServer } from "http";
+    import { Server } from "socket.io";
+
+    const httpServer = createServer();
+    const io = new Server(httpServer, {
+      cors: {
+        origin: "https://sbhs-platform.herokuapp.com"
+      }
+    });
     const socket = io("https://sbhs-platform.herokuapp.com");
   </script>
 </html>
