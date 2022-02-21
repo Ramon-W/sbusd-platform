@@ -39,19 +39,19 @@ img { /* make images and create button undraggable */
 
 #profile {
   display: inline-block;
-  width: 190px;
+  width: 170px;
   height: 36px;
-  margin-left: 120px;
+  margin-left: 80px;
   margin-top: 7px;
   border-radius: 2px;
   border: 1px solid #dadce0;
 }
-
+/* add a min width and responsive thing to spaces */
 #spaces {
   display: inline-block;
-  width: 500px;
+  width: 200px;
   height: 36px;
-  margin-left: 80px;
+  margin-left: 70px;
   margin-top: 7px;
   border-radius: 2px;
   border: 1px solid #dadce0;
