@@ -39,14 +39,17 @@
       socket.emit("join_room", {
         username: (Math.random() + 1).toString(36).substring(7),
         room: "1"
-      });
-      alert("hi :0");
+      })
+      alert("1");
     });
+    socket.on("join_room", function (data) {
+      alert("3");
+    })
     socket.on("join_room_announcement", function (data) {
-      alert("hi");
+      alert("2");
       const newMode = document.createElement("div");
       newMode.innerHTML = "${data.username}has joined";
       document.getElementByID("chat").appendChild(newMode);
-    });
+    })
   </script>
 </html>
