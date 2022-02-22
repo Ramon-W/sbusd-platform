@@ -33,9 +33,8 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
   <script>
-    var socket = io.connect('https://sbhs-platform.herokuapp.com');
+    const socket = io.connect('https://sbhs-platform.herokuapp.com');
     alert(window.location.port);
-    const socket = io.connect("https://sbhs-platform.herokuapp.com:443");
     socket.on("connect", function () {
       alert("reached here 2");
       socket.emit("join_room", {
