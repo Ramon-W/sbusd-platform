@@ -119,7 +119,8 @@ def logout():
 
 @socketio.on('join_room')
 def handle_join_room_event(data):
-    join_room(data['username'])
+    app.logger.info('{} has joined room {}'.format(data[username], data[room]))
+    join_room(data['room'])
     socketio.emit('join_room_announcement', data)
 
 @app.route('/sbhs')
