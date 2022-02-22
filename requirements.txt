@@ -26,5 +26,5 @@ Flask-PyMongo
 pymongo
 dnspython
 pytz
-flask-socketio==5.x
+flask-socketio==5.1.1
 eventlet==0.30.2
