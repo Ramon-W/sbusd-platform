@@ -31,17 +31,8 @@
         <button type="button" id="create"><img src="/static/images/ppicons-plus.svg" alt="create" style="width:25px;height:25px;"></button>
       </div>
   </body>
-  <script src="/socket.io/socket.io.js"></script>
-  <script type="module">
-    import { createServer } from "http";
-    import { Server } from "socket.io";
-
-    const httpServer = createServer();
-    const io = new Server(httpServer, {
-      cors: {
-        origin: "https://sbhs-platform.herokuapp.com"
-      }
-    });
-    const socket = io("https://sbhs-platform.herokuapp.com");
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+  <script>
+    const socket = io();
   </script>
 </html>
