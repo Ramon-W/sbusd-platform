@@ -34,5 +34,10 @@
   <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
   <script>
     const socket = io.connect("https://sbhs-platform.herokuapp.com:433");
+    socket.on("connect", function() {
+      socket.emit("join_room", {
+        username: "Yo"
+      })
+    })
   </script>
 </html>
