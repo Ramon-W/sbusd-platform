@@ -33,8 +33,8 @@
   </body>
   <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
   <script>
-    const socket = io.connect();
-    //const socket = io.connect("https://sbhs-platform.herokuapp.com:433");
+    //const socket = io.connect();
+    const socket = io.connect("https://sbhs-platform.herokuapp.com");
     socket.on("connect", function () {
       alert("reached here 2");
       socket.emit("join_room", {
