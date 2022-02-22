@@ -35,19 +35,19 @@
   <script>
     var socket = io.connect('https://sbhs-platform.herokuapp.com');
     alert(window.location.port);
-    //const socket = io.connect("https://sbhs-platform.herokuapp.com:443");
-    //socket.on("connect", function () {
-    //  alert("reached here 2");
-    //  socket.emit("join_room", {
-    //    username: "Yo",
-    //   room: "1"
-    //  })
-    //});
-    //socket.on("join_room_announcement", function (data) {
-    //  alert(data);
-    //  const newMode = document.createElement("div");
-    //  newMode.innerHTML = "${data.username}has joined";
-    //  document.getElementByID("chat").appendChild(newMode);
-    //});
+    const socket = io.connect("https://sbhs-platform.herokuapp.com:443");
+    socket.on("connect", function () {
+      alert("reached here 2");
+      socket.emit("join_room", {
+        username: "Yo",
+       room: "1"
+      })
+    });
+    socket.on("join_room_announcement", function (data) {
+      alert(data);
+      const newMode = document.createElement("div");
+      newMode.innerHTML = "${data.username}has joined";
+      document.getElementByID("chat").appendChild(newMode);
+    });
   </script>
 </html>
