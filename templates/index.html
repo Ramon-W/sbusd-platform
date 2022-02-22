@@ -34,7 +34,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
   <script>
     var socket = io();
-    alert(window.location.port);
+    alert(socket);
     socket.on("connect", function () {
       socket.emit("join_room", {
         username: (Math.random() + 1).toString(36).substring(7),
@@ -42,9 +42,6 @@
       })
       alert("1");
     });
-    socket.on("join_room", function (data) {
-      alert("3");
-    })
     socket.on("join_room_announcement", function (data) {
       alert("2");
       const newMode = document.createElement("div");
