@@ -16,7 +16,7 @@ from datetime import datetime, date, timedelta
 from pytz import timezone
 import pytz
 
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, join_room
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_CLIENT_SECRET = os.environ['GOOGLE_CLIENT_SECRET']
@@ -116,6 +116,12 @@ def get_google_provider_cfg():
 def logout():
     session.clear()
     return redirect(url_for('render_login'))
+
+@socketio.on('join_room')
+def handle_join_room_event(data):
+    app.logger.info('{} has joined'.format(data['username']))
+    join_room(data['username'])
+    socketio.emit('join_room_announcement', data)
 
 @app.route('/sbhs')
 def render_main_page():
