@@ -119,7 +119,6 @@ def logout():
 
 @socketio.on('join_room')
 def handle_join_room_event(data):
-    flash(data['username'])
     join_room(data['username'])
     socketio.emit('join_room_announcement', data)
 
