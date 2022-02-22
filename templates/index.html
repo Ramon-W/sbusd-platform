@@ -36,14 +36,14 @@
     const socket = io.connect('https://sbhs-platform.herokuapp.com');
     alert(window.location.port);
     socket.on("connect", function () {
-      alert("reached here 2");
       socket.emit("join_room", {
         username: "Yo",
         room: "1"
       })
+      alert("hi");
     });
     socket.on("join_room_announcement", function (data) {
-      alert(data);
+      alert("hi");
       const newMode = document.createElement("div");
       newMode.innerHTML = "${data.username}has joined";
       document.getElementByID("chat").appendChild(newMode);
