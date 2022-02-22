@@ -1,1 +1,1 @@
-web: gunicorn webapp:app --log-file=-
+web:  gunicorn --worker-class eventlet --log-file=- app:app
