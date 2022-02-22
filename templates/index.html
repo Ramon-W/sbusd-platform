@@ -33,11 +33,11 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
   <script>
-    const socket = io();//.connect('https://sbhs-platform.herokuapp.com');
+    const socket = io();
     alert(window.location.port);
     socket.on("connect", function () {
       socket.emit("join_room", {
-        username: "Yo",
+        username: (Math.random() + 1).toString(36).substring(7),
         room: "1"
       });
       alert("hi :0");
