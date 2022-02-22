@@ -34,13 +34,15 @@
   <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
   <script>
     const socket = io.connect("https://sbhs-platform.herokuapp.com:433");
-    socket.on("connect", function() {
+    socket.on("connect", function () {
       alert("reached here 2");
       socket.emit("join_room", {
-        username: "Yo"
+        username: "Yo",
+        room: "1"
       })
     });
-    socket.on("join_room_announcement", function(data) {
+    socket.on("join_room_announcement", function (data) {
+      alert(data);
       const newMode = document.createElement("div");
       newMode.innerHTML = "${data.username}has joined";
       document.getElementByID("chat").appendChild(newMode);
