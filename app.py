@@ -128,4 +128,4 @@ def render_main_page():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app)
