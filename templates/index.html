@@ -37,11 +37,10 @@
   <script type="text/javascript" charset="utf-8">
     var socket = io();
     socket.on('connect', function() {
-    //  socket.emit('join_room', {username: 'hi', room: 'room1'});
-      alert("1");
-    //  const newMode = document.createElement("div");
-    //  newMode.innerHTML = "uhgyt joined";
-    //  document.getElementById("chat").appendChild(newMode);
+      socket.emit('join_room', {username: 'hi', room: 'room1'});
+      const newMode = document.createElement("div");
+      newMode.innerHTML = "uhgyt joined";
+      document.getElementById("chat").appendChild(newMode);
     });
     //socket.on("join_room_announcement", function (data) {
     //  alert("2");
