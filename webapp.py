@@ -122,7 +122,8 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    return redirect(url_for('render_login'))
+    app.logger.info('Worked')
+    
 
 @socketio.on('join_room')
 def join(data): #use .get for python dictionary.
