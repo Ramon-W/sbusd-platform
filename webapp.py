@@ -126,7 +126,7 @@ def connect():
     return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
-def join_room(data):
+def join_room(data): #use .get for python dictionary.
     #app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room("1")#data['room'])
     socketio.emit('join_room_announcement', data)
