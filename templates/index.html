@@ -35,10 +35,7 @@
   <script type="text/javascript" charset="utf-8">
     var socket = io();
     socket.on("connect", function () {
-      socket.emit("join_room", {
-        username: (Math.random() + 1).toString(36).substring(7),
-        room: "1"
-      });
+      socket.emit("join_room", {username: "hi", room: "room1"});
       alert("1");
       const newMode = document.createElement("div");
       newMode.innerHTML = "has joined";
