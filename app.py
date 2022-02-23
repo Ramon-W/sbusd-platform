@@ -15,9 +15,6 @@ import pymongo
 from datetime import datetime, date, timedelta
 from pytz import timezone
 import pytz
-import eventlet
-
-eventlet.monkey_patch() 
 
 from flask_socketio import SocketIO, join_room
 
