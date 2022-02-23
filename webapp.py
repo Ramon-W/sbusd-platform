@@ -36,7 +36,7 @@ collection = db['Users']
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 
-socketio = SocketIO(app)#, async_mode='eventlet')
+socketio = SocketIO(app, async_mode='eventlet')
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
@@ -136,4 +136,4 @@ def render_main_page():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, debug=True)
