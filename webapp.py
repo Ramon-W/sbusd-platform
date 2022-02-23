@@ -35,7 +35,7 @@ collection = db['Users']
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 
-socketio = SocketIO(app, async_mode='eventlet')
+socketio = SocketIO(app)#, async_mode='eventlet')
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
@@ -119,8 +119,8 @@ def logout():
     session.clear()
     return redirect(url_for('render_login'))
 
-@socketio.on("connect")
-def connect():
+@socketio.on('connect')
+def connect(data):
     return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
