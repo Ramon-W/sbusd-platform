@@ -35,12 +35,11 @@
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>-->
   <script type="text/javascript" charset="utf-8">
     var socket = io();
-    socket.emit("join_room", {username: "hi", room: "room1"});
-    socket.on("connect", function () {
-      socket.emit("join_room", {username: "hi", room: "room1"});
+    socket.on('connect', function() {
+      socket.emit('join_room', {username: 'hi', room: 'room1'});
       alert("1");
       const newMode = document.createElement("div");
-      newMode.innerHTML = "has joined";
+      newMode.innerHTML = "uhgyt joined";
       document.getElementById("chat").appendChild(newMode);
     });
     socket.on("join_room_announcement", function (data) {
