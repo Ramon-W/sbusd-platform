@@ -123,17 +123,15 @@ def logout():
 @socketio.on('connect')
 def connect():
     sys.stdout.write('WORKED')
-    app.logger.info('Worked')
 
 @socketio.on('join_room')
-def join(data): #use .get for python dictionary.
+def join(data):
     #app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
 
 @app.route('/sbhs')
 def render_main_page():
-    sys.stdout.write('WORKED')
     socketio.emit('join_room_announcement', {'username': 'bob', 'room': '1'})
     return render_template('index.html')
 
