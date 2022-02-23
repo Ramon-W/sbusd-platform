@@ -132,7 +132,6 @@ def join(data): #use .get for python dictionary.
 
 @app.route('/sbhs')
 def render_main_page():
-    join_room('room 1')
     socketio.emit('join_room_announcement', data)
     return render_template('index.html')
 
