@@ -32,13 +32,13 @@
       </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-  <script>
-    const socket = io();
+  <script type="text/javascript" charset="utf-8">
+    var socket = io();
     socket.on("connect", function () {
       socket.emit("join_room", {
         username: (Math.random() + 1).toString(36).substring(7),
         room: "1"
-      })
+      });
       alert("1");
       const newMode = document.createElement("div");
       newMode.innerHTML = "has joined";
@@ -49,6 +49,6 @@
       const newMode = document.createElement("div");
       newMode.innerHTML = "has joined";
       document.getElementById("chat").appendChild(newMode);
-    })
+    });
   </script>
 </html>
