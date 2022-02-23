@@ -47,8 +47,8 @@
     socket.on("join_room_announcement", function (data) {
       alert("2");
       const newMode = document.createElement("div");
-      newMode.innerHTML = "${data.username}has joined";
-      document.getElementByID("chat").appendChild(newMode);
+      newMode.innerHTML = "has joined";
+      document.getElementById("chat").appendChild(newMode);
     })
   </script>
 </html>
