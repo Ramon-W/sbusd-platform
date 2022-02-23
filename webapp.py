@@ -119,9 +119,8 @@ def logout():
     session.clear()
     return redirect(url_for('render_login'))
 
-@socketio.on('connect')
-def test_connect():
-    print('Client connected')
+@socketio.on("connect")
+def connect():
     return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
