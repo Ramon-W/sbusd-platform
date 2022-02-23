@@ -27,4 +27,4 @@ pymongo
 dnspython
 pytz
 flask-socketio
-eventlet==0.24.1
+eventlet
