@@ -37,7 +37,7 @@
   <script type="text/javascript" charset="utf-8">
     var socket = io.connect("https://sbhs-platform.herokuapp.com/sbhs");
     socket.on('connect', function() {
-      socket.emit('join_room', {username: 'hi', room: 'room1'});
+      socket.emit('join_room', {username: 'bob', room: '1'});
       const newMode = document.createElement("div");
       newMode.innerHTML = "uhgyt joined";
       document.getElementById("chat").appendChild(newMode);
