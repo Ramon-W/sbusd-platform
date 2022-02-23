@@ -17,8 +17,8 @@ import pymongo
 #import pytz
 
 from flask_socketio import SocketIO, emit, join_room
-#import eventlet 
-#eventlet.monkey_patch()
+import eventlet 
+eventlet.monkey_patch()
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_CLIENT_SECRET = os.environ['GOOGLE_CLIENT_SECRET']
