@@ -119,13 +119,13 @@ def logout():
     session.clear()
     return redirect(url_for('render_login'))
 
-@socketio.on('connect', namespace='/test')
+@socketio.on('connect')
 def test_connect():
     print('Client connected')
     abort(404)
 
 @socketio.on('join_room')
-def handle_join_room_event(data):
+def join_room(data):
     app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
