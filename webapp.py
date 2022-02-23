@@ -122,8 +122,8 @@ def logout():
 
 @socketio.on('connect')
 def connect():
+    sys.stdout.write('WORKED')
     app.logger.info('Worked')
-    
 
 @socketio.on('join_room')
 def join(data): #use .get for python dictionary.
