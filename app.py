@@ -117,6 +117,10 @@ def logout():
     session.clear()
     return redirect(url_for('render_login'))
 
+@socketio.on("connect")
+def connect():
+    return "Howdy"
+
 @socketio.on('join_room')
 def handle_join_room_event(data):
     app.logger.info('{} has joined room {}'.format(data[username], data[room]))
