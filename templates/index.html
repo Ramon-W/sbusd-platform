@@ -41,6 +41,7 @@
       const newMode = document.createElement("div");
       newMode.innerHTML = "uhgyt joined";
       document.getElementById("chat").appendChild(newMode);
+      socket.emit('connect', "hi");
     });
     //socket.on("join_room_announcement", function (data) {
     //  alert("2");
