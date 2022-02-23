@@ -33,14 +33,16 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
   <script>
-    var socket = io.connect("https://sbhs-platform.herokuapp.com");
-    alert(socket);
+    const socket = io();
     socket.on("connect", function () {
       socket.emit("join_room", {
         username: (Math.random() + 1).toString(36).substring(7),
         room: "1"
       })
       alert("1");
+      const newMode = document.createElement("div");
+      newMode.innerHTML = "${data.username}has joined";
+      document.getElementByID("chat").appendChild(newMode);
     });
     socket.on("join_room_announcement", function (data) {
       alert("2");
