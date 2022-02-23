@@ -108,7 +108,7 @@ def callback():
     session['users_email'] = users_email
     session['picture'] = picture
     session['users_name'] = users_name
-    join_room({'username': '', 'room', 'room1'})
+    join_room({'username': '', 'room': 'room1'})
     if not collection.count_documents({ '_id': unique_id}, limit = 1):
         collection.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture})
     return redirect(url_for('render_main_page'))
