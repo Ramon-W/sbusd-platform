@@ -122,7 +122,7 @@ def logout():
 @socketio.on('connect')
 def test_connect():
     print('Client connected')
-    abort(404)
+    return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
 def join_room(data):
