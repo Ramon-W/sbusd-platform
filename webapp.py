@@ -108,7 +108,6 @@ def callback():
     session['users_email'] = users_email
     session['picture'] = picture
     session['users_name'] = users_name
-    join_room({'username': 'hi', 'room': 'room1'})
     if not collection.count_documents({ '_id': unique_id}, limit = 1):
         collection.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture})
     return redirect(url_for('render_main_page'))
@@ -126,13 +125,14 @@ def connect():
     return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
-def join_room(data): #use .get for python dictionary.
+def join(data): #use .get for python dictionary.
     #app.logger.info('{} has joined room {}'.format(data[username], data[room]))
-    join_room("1")#data['room'])
+    join_room(data['room'])
     socketio.emit('join_room_announcement', data)
 
 @app.route('/sbhs')
 def render_main_page():
+    join({'username': 'hi', 'room': 'room1'})
     return render_template('index.html')
 
 if __name__ == '__main__':
