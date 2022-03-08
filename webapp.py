@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit, join_room
 import json
 import os
 
-from flask import Flask, redirect, Markup, url_for, session, request, jsonify, 
+from flask import Flask, redirect, Markup, url_for, session, request, jsonify
 from flask import render_template
 
 from oauthlib.oauth2 import WebApplicationClient
