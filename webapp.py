@@ -119,11 +119,11 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    return redirect(url_for('render_login'))
 
+    
 @socketio.on('join_room')
 def join(data):
-    #app.logger.info('{} has joined room {}'.format(data[username], data[room]))
+    app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
 
