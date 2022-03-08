@@ -119,7 +119,7 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-
+    print("ho")
     
 @socketio.on('join_room')
 def join(data):
@@ -129,7 +129,6 @@ def join(data):
 
 @app.route('/sbhs')
 def render_main_page():
-    
     return render_template('index.html', 'username' = session['users_name'], 'room' = '1')
 
 if __name__ == '__main__':
