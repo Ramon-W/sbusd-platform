@@ -41,9 +41,6 @@
     var socket = io();
     socket.on('connect', function() {
       socket.emit('join_room', {username: 'bob', room: '1'});
-      const newMode = document.createElement("div");
-      newMode.innerHTML = "uhgyt joined";
-      document.getElementById("chat").appendChild(newMode);
     });
     socket.on("join_room_announcement", function (data) {
       const newMode = document.createElement("div");
