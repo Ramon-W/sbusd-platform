@@ -119,7 +119,7 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    sys.stdout.write('WORKED')
+    return redirect(url_for('render_login'))
 
 @socketio.on('join_room')
 def join(data):
