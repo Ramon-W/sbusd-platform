@@ -40,7 +40,7 @@
   <script type="text/javascript" charset="utf-8">
     var socket = io();
     socket.on('connect', function() {
-      socket.emit('join_room', {username: 'bob', room: '1'});
+      socket.emit('join_room', {username: {{ username }}, room: {{ room }}});
     });
     socket.on("join_room_announcement", function (data) {
       const newMode = document.createElement("div");
