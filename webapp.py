@@ -3,10 +3,8 @@ from flask_socketio import SocketIO, emit, join_room
 import json
 import os
 
-from flask import Flask, redirect, Markup, url_for, session, request, jsonify, send_from_directory
+from flask import Flask, redirect, Markup, url_for, session, request, jsonify, 
 from flask import render_template
-from flask_restful import Api, Resource, reqparse
-from api.HelloApiHandler import HelloApiHandler
 
 from oauthlib.oauth2 import WebApplicationClient
 import requests
@@ -35,7 +33,6 @@ collection = db['Users']
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 
-api = Api(app)
 socketio = SocketIO(app, async_mode='eventlet')
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
