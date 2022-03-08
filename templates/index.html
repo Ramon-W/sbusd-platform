@@ -35,8 +35,6 @@
       </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
-  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>-->
   <script type="text/javascript" charset="utf-8">
     var socket = io();
     socket.on('connect', function() {
@@ -44,7 +42,7 @@
     });
     socket.on("join_room_announcement", function (data) {
       const newMode = document.createElement("div");
-      newMode.innerHTML = "has joined";
+      newMode.innerHTML = "${data.username} has joined";
       document.getElementById("chat").appendChild(newMode);
     });
   </script>
