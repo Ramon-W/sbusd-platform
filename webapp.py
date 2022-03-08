@@ -38,6 +38,7 @@ collection = db['Users']
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 
+api = Api(app)
 socketio = SocketIO(app, async_mode='eventlet')
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
