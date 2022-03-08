@@ -46,6 +46,12 @@ img { /* make images and create button undraggable */
   border-radius: 2px;
   border: 1px solid #dadce0;
 }
+#profile_picture {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
 /* add a min width and responsive thing to spaces */
 /* Some math is needed for the width responsiveness; take 1 - percentage of the profile pixels*/
 #spaces {/* arrow key rolling between each space shown below */
