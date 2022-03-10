@@ -119,7 +119,7 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    socketio.emit('join_room_announcement', {'username': 'bob', 'room': '1'})
+    socketio.emit('random')
 
 @socketio.on('join_room')
 def join(data):
