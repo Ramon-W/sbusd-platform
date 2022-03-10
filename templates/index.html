@@ -38,16 +38,16 @@
   <script type="text/javascript" charset="utf-8">
     var socket = io();
     socket.on('connect', function() {
-      socket.emit('join_room', {username: "{{ username }}", room: "{{ room }}"});
+      socket.emit('join_room', {username: '{{ username }}', room: '{{ room }}'});
       
-      let message_input = document.getElementById("message_input");
-      document.getElementById("message_input_form").onsubmit = function(e) {
+      let message_input = document.getElementById('message_input');
+      document.getElementById('message_input_form').onsubmit = function(e) {
         e.preventDefault();
         let message = message_input.value.trim();
         if(message.length) {
           socket.emit('send_message', {
-            username: "{{ username }}",
-            room: "{{ room }}",
+            username: '{{ username }}',
+            room: '{{ room }}',
             message: message
           })
         }
@@ -56,16 +56,16 @@
       }
     });
     
-    socket.on("recieve_message"), function (data) {
-      const newMode = document.createElement("div");
-      newMode.innerHTML = "<b>"+ data.username + ":</b> " + data.message;
-      document.getElementById("chat").appendChild(newMode);
+    socket.on('recieve_message', function (data) {
+      const newMode = document.createElement('div');
+      newMode.innerHTML = '<b>'+ data.username + ':</b> ' + data.message;
+      document.getElementById('chat').appendChild(newMode);
     )};
     
-    socket.on("join_room_announcement", function (data) {
-      const newMode = document.createElement("div");
-      newMode.innerHTML = data.username + " has joined";
-      document.getElementById("chat").appendChild(newMode);
+    socket.on('join_room_announcement', function (data) {
+      const newMode = document.createElement('div');
+      newMode.innerHTML = data.username + ' has joined';
+      document.getElementById('chat').appendChild(newMode);
     });
   </script>
 </html>
