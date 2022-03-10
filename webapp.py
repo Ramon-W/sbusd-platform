@@ -123,7 +123,6 @@ def connect():
 
 @socketio.on('join_room')
 def join(data):
-    app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
     
