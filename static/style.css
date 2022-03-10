@@ -54,6 +54,19 @@ img { /* make images and create button undraggable */
   margin-top: 5px;
   margin-left: 10px;
 }
+#username {
+  display: inline-block;
+  margin-left: 2px;
+  line-height: 18px;
+  vertical-align: bottom;
+}
+#settings {
+  display: inline-block;
+  line-height: 18px;
+  margin-left: 50px;
+  vertical-align: bottom;
+  
+}
 /* add a min width and responsive thing to spaces */
 /* Some math is needed for the width responsiveness; take 1 - percentage of the profile pixels*/
 #spaces {/* arrow key rolling between each space shown below */
