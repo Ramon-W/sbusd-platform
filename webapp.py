@@ -126,6 +126,10 @@ def join(data):
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
     
+@socketio.on('send_message')
+def send_message(data):
+    socketio.emit('recieve_message', data, room = data['room'])
+
 @app.route('/sbhs')
 def render_main_page():
     return render_template('index.html', username = session['users_name'], room = '1')
