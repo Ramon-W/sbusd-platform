@@ -124,7 +124,7 @@ def connect():
 @socketio.on('join_room')
 def join(data):
     join_room(data['room'])
-    socketio.emit('join_room_announcement', data)
+    socketio.emit('join_room_announcement', data, room = data['room'])
     
 @socketio.on('send_message')
 def send_message(data):
