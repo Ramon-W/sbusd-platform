@@ -119,8 +119,8 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    socketio.emit('join_room_announcement', data)
-    
+    socketio.emit('join_room_announcement', {'username': 'bob', 'room': '1'})
+
 @socketio.on('join_room')
 def join(data):
     app.logger.info('{} has joined room {}'.format(data[username], data[room]))
