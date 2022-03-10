@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -15,8 +14,8 @@
   <body>
     <div id="background">
       <div id="chat"></div>
-        <form id="send_message">
-          <input type="text" id="message" placeholder="Enter message">
+        <form id="message_input_form">
+          <input type="text" id="message_input" placeholder="Enter message">
           <button type="submit">Send</button>
         </form>
       </div>
@@ -40,6 +39,23 @@
     var socket = io();
     socket.on('connect', function() {
       socket.emit('join_room', {username: "{{ username }}", room: "{{ room }}"});
+      
+      let message_input = document.getElementById("message_input");
+      document.getElementById("message_input_form").onsubmit = function(e) {
+        e.preventDefault();
+        let message = message_input.value.trim();
+        if(message.length) {
+          socket.emit('send_message', {
+            username: "{{ username }}",
+            room: "{{ room }}",
+            message: message
+          })
+        }
+        message_input.value = "";
+        message_input.focus();
+      }
+      
+      
     });
     socket.on("join_room_announcement", function (data) {
       const newMode = document.createElement("div");
