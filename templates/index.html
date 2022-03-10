@@ -54,9 +54,14 @@
         message_input.value = "";
         message_input.focus();
       }
-      
-      
     });
+    
+    socket.on("recieve_message"), function (data) {
+      const newMode = document.createElement("div");
+      newMode.innerHTML = "<b>"+ data.username + ":</b> " + data.message;
+      document.getElementById("chat").appendChild(newMode);
+    )};
+    
     socket.on("join_room_announcement", function (data) {
       const newMode = document.createElement("div");
       newMode.innerHTML = data.username + " has joined";
