@@ -119,14 +119,14 @@ def logout():
 
 @socketio.on('connect')
 def connect():
-    print("ho")
+    socketio.emit('join_room_announcement', data)
     
 @socketio.on('join_room')
 def join(data):
     app.logger.info('{} has joined room {}'.format(data[username], data[room]))
     join_room(data['room'])
     socketio.emit('join_room_announcement', data)
-
+    
 @app.route('/sbhs')
 def render_main_page():
     return render_template('index.html', username = session['users_name'], room = '1')
