@@ -43,29 +43,25 @@ img { /* make images and create button undraggable */
   height: 50px;
   margin-left: 40px;
   border-radius: 2px;
-  border: 1px solid #dadce0;
   overflow: hidden;
 }
 #profile_picture {
   display: inline-block;
-  width: 37px;
-  height: 37px;
+  line-height: 50px;
+  margin-left: 9px;
+  width: 39px;
+  height: 39px;
   border-radius: 50%;
-  margin-top: 5px;
-  margin-left: 10px;
 }
 #username {
   display: inline-block;
   margin-left: 2px;
-  line-height: 18px;
-  vertical-align: bottom;
+  line-height: 48px;
 }
 #settings {
   display: inline-block;
-  line-height: 18px;
+  line-height: 48px;
   margin-left: 50px;
-  vertical-align: bottom;
-  
 }
 /* add a min width and responsive thing to spaces */
 /* Some math is needed for the width responsiveness; take 1 - percentage of the profile pixels*/
@@ -76,7 +72,6 @@ img { /* make images and create button undraggable */
   margin-left: 20px;
   height: 50px;
   border-radius: 2px;
-  border: 1px solid #dadce0;
 }
 #create {
   width: 40px;
