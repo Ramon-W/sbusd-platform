@@ -28,4 +28,4 @@ dnspython
 pytz
 flask-socketio
 gevent
-Flask-SSLify
+flask_talisman
