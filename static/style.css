@@ -66,6 +66,11 @@ img { /* make images and create button undraggable */
   border-radius: 2px;
   overflow: hidden;
 }
+#space_align_helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
 .space {
   display: inline-block;
   line-height: 48px;
