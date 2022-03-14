@@ -41,18 +41,24 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 @app.route('/') 
 def render_login():
+    
+    # Renders the login page. If user has attempted to log in and failed, then it renders page with error message.
+
     if request.args.get('error') != None:
         return render_template('login.html', login_error = request.args.get('error'))
     return render_template('login.html')
 
 @app.route('/login')
 def login():
-    # Find out what URL to hit for Google login
+    
+    # Finds URL for Google login.
+    
     google_provider_cfg = get_google_provider_cfg()
     authorization_endpoint = google_provider_cfg['authorization_endpoint']
 
     # Use library to construct the request for Google login and provide
     # scopes that let you retrieve user's profile from Google
+    
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
         redirect_uri=request.base_url + '/callback',
@@ -63,7 +69,9 @@ def login():
 
 @app.route('/login/callback')
 def callback():
-    # Get authorization code Google sent back to you
+    
+    # Get authorization code from Google
+    
     code = request.args.get('code')
     google_provider_cfg = get_google_provider_cfg()
     token_endpoint = google_provider_cfg['token_endpoint']
@@ -81,19 +89,20 @@ def callback():
         auth=(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET),
     )
 
-    # Parse the tokens!
+    # Parse tokens
+    
     client.parse_request_body_response(json.dumps(token_response.json()))
 
-    # Now that we have tokens (yay) let's find and hit URL
-    # from Google that gives you user's profile information,
-    # including their Google Profile Image and Email
+    # Finds URL from Google that contains user's profile information.
+    
     userinfo_endpoint = google_provider_cfg['userinfo_endpoint']
     uri, headers, body = client.add_token(userinfo_endpoint)
     userinfo_response = requests.get(uri, headers=headers, data=body)
 
-    # We want to make sure their email is verified.
-    # The user authenticated with Google, authorized our
-    # app, and now we've verified their email through Google!
+    # Check if user's email is verified by Google, after user has authenticated with Google and has authorized this app.
+    # If verified, get user data and check if their email in school domains.
+    # If not verified or email not in school domains, return user to login page with error.
+    
     if userinfo_response.json().get('email_verified'):
         unique_id = userinfo_response.json()['sub']
         users_email = userinfo_response.json()['email']
@@ -103,16 +112,26 @@ def callback():
             return redirect(url_for('render_login', error = "Please use your school issued email"))
     else:
         return redirect(url_for('render_login', error = "Email not available or verified"))
+    
+    # Store user data in session
+    
     session['unique_id'] = unique_id
     session['users_email'] = users_email
     session['picture'] = picture
     session['users_name'] = users_name
+    
+    # Store user data in MongoDB if new user.
+    
     if not collection.count_documents({ '_id': unique_id}, limit = 1):
         collection.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture})
+        
     return redirect(url_for('render_main_page'))
 
 def get_google_provider_cfg():
-    return requests.get(GOOGLE_DISCOVERY_URL).json() #handle errors to google api call
+    
+    # Handle errors to Google API call.
+    
+    return requests.get(GOOGLE_DISCOVERY_URL).json()
     
 @app.route('/logout')
 def logout():
