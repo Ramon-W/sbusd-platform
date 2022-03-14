@@ -32,8 +32,8 @@ db = client[db_name]
 collection = db['Users']
 
 app = Flask(__name__)
-app.secret_key = os.environ['SECRET_KEY']\
-Talisman(app)
+app.secret_key = os.environ['SECRET_KEY']
+Talisman(app, content_security_policy=None)
 
 socketio = SocketIO(app, async_mode='gevent')
 
