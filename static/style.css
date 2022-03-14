@@ -34,12 +34,12 @@ img { /* make images and create button undraggable */
   width: 220px;
   height: 50px;
   margin-left: 40px;
-  border-radius: 2px;
+/*   border-radius: 2px; */
   overflow: hidden;
 }
 #profile_picture {
   display: inline-block;
-  line-height: 50px;
+  line-height: 48px;
   margin-left: 9px;
   width: 39px;
   height: 39px;
@@ -53,7 +53,7 @@ img { /* make images and create button undraggable */
 #settings {
   display: inline-block;
   line-height: 48px;
-  margin-left: 50px;
+  margin-left: 48px;
 }
 /* add a min width and responsive thing to spaces */
 /* Some math is needed for the width responsiveness; take 1 - percentage of the profile pixels*/
@@ -64,9 +64,12 @@ img { /* make images and create button undraggable */
   margin-left: 20px;
   height: 50px;
   border-radius: 2px;
+  overflow: hidden;
 }
-#create {
-  width: 40px;
-  height: 40px;
-  float: right;
+.space {
+  display: inline-block;
+  line-height: 48px;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
 }
