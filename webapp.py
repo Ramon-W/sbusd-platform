@@ -8,6 +8,7 @@ from flask import render_template
 
 from oauthlib.oauth2 import WebApplicationClient
 import requests
+from flask_talisman import Talisman
 
 from bson.objectid import ObjectId
 
@@ -31,7 +32,8 @@ db = client[db_name]
 collection = db['Users']
 
 app = Flask(__name__)
-app.secret_key = os.environ['SECRET_KEY']
+app.secret_key = os.environ['SECRET_KEY']\
+Talisman(app)
 
 socketio = SocketIO(app, async_mode='gevent')
 
