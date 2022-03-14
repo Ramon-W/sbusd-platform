@@ -28,3 +28,4 @@ dnspython
 pytz
 flask-socketio
 gevent
+gevent-websocket
