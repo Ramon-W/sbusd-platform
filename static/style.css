@@ -70,8 +70,8 @@ img { /* make images and create button undraggable */
 .space {
   display: inline-block;
   line-height: 48px;
-  width: 39px;
+  width: 55px;
   height: 39px;
-  border-radius: 50%;
+  border-radius: 10%;
   margin-right: 3px;
 }
