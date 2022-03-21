@@ -27,8 +27,9 @@ img { /* make images and create button undraggable */
 #profile {
   display: inline-block;
   width: 220px;
-  height: 50px;
-  margin-left: 40px;
+  height: 46px;
+  margin-left: 50px;
+  margin-top: 2px;
   border-radius: 2px;
   background-color: pink;
   overflow: hidden;
@@ -37,6 +38,7 @@ img { /* make images and create button undraggable */
   display: inline-block;
   line-height: 48px;
   margin-left: 9px;
+  margin-top: -1px;
   width: 39px;
   height: 39px;
   border-radius: 50%;
@@ -45,11 +47,13 @@ img { /* make images and create button undraggable */
   display: inline-block;
   margin-left: 2px;
   line-height: 48px;
+  margin-top: -1px;
 }
 #settings {
   display: inline-block;
   line-height: 48px;
-  margin-left: 48px;
+  margin-left: 44px;
+  margin-top: -1px;
 }
 /* add a min width and responsive thing to spaces */
 /* Some math is needed for the width responsiveness; take 1 - percentage of the profile pixels*/
@@ -61,6 +65,8 @@ img { /* make images and create button undraggable */
   height: 50px;
   border-radius: 2px;
   overflow: hidden;
+  line-height: 50px;
+  vertical-align: top;
 }
 #space_align_helper {
   display: inline-block;
@@ -75,3 +81,4 @@ img { /* make images and create button undraggable */
   border-radius: 10%;
   margin-right: 3px;
 }
+
