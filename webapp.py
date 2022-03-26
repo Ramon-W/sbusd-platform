@@ -149,7 +149,15 @@ def send_message(data):
 
 @app.route('/sbhs')
 def render_main_page():
+    
+    #when creating the list of all the spaces, make sure they all have their own unique IDs stored
+    
     return render_template('index.html', username = session['users_name'], room = '1')
+
+@app.route('/space/<space_id>', methods = ['POST', 'GET'])
+def render_space():
+    if request.method == 'POST':
+        return render_template('index.html', username = session['users_name'], room = '1')
 
 if __name__ == '__main__':
     socketio.run(app, debug=False)
