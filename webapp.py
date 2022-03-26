@@ -156,10 +156,10 @@ def render_main_page():
 
 @app.route('/space/<space_id>', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
-    if request.method == 'GET':
+    if request.method == 'POST':
         results = {'processed': 'true'}
-        return render_template('index.html', username = session['users_name'], room = '1')
         return jsonify(results)
         return render_template('index.html', username = session['users_name'], room = '1')
+
 if __name__ == '__main__':
     socketio.run(app, debug=False)
