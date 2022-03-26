@@ -154,10 +154,9 @@ def render_main_page():
     
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
-@app.route('/space/<space_id>', methods = ['POST', 'GET'])
+@app.route('/space/<space_id>')
 def render_space():
-    if request.method == 'POST':
-        return render_template('index.html', username = session['users_name'], room = '1')
+    return render_template('index.html', username = session['users_name'], room = '1')
 
 if __name__ == '__main__':
     socketio.run(app, debug=False)
