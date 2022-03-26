@@ -2,7 +2,7 @@ $(document).ready(function(){
   $(".space").click(function() {
     $.ajax({
       type: "POST",
-      url: '/space/12345678',
+      url: '/space',
       dataType: "json",
       data: JSON.stringify([{'space_i': 'test'}]), //JSOn.stringify
       contentType: 'application/json;charset=UTF-8',
