@@ -151,7 +151,7 @@ def send_message(data):
 def render_main_page():
     
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
-    
+    return render_template('index.html', username = session['users_name'], room = '1')
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
