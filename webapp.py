@@ -154,7 +154,7 @@ def render_main_page():
     
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
-@app.route('/space/<space_id>')
+@app.route('/space')#/<space_id>')
 def render_space():
     return render_template('index.html', username = session['users_name'], room = '1')
 
