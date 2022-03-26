@@ -7,7 +7,7 @@ $(document).ready(function(){
       data: JSON.stringify([{'space_id': 'test'}]), //JSOn.stringify
       contentType: 'application/json;charset=UTF-8',
       success: function(result) {
-        alert(result);
+        alert(JSON.stringify(result));
       } 
     });
   });
