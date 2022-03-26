@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(".space").click(function() {
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: '/space',
       dataType: "json",
       data: JSON.stringify([{'space_id': 'test'}]), //JSOn.stringify
