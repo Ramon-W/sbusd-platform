@@ -157,7 +157,7 @@ def render_main_page():
     chat_contents = ''
     for message in messages:
         chat_contents += '<div><b>' + message.get('name') + ':</b> ' + message.get('message') + '</div>'
-    return render_template('index.html', username = session['users_name'], room = '1', messaages = Markup(message))
+    return render_template('index.html', username = session['users_name'], room = '1', messaages = Markup(chat_contents))
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
