@@ -29,7 +29,8 @@ connection_string = os.environ['MONGO_CONNECTION_STRING']
 db_name = os.environ['MONGO_DBNAME']
 client = pymongo.MongoClient(connection_string)
 db = client[db_name]
-collection = db['Users']
+collection_users = db['Users']
+collection_spaces = db['Spaces']
 
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
@@ -122,8 +123,8 @@ def callback():
     
     # Store user data in MongoDB if new user.
     
-    if not collection.count_documents({ '_id': unique_id}, limit = 1):
-        collection.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture})
+    if not collection_users.count_documents({ '_id': unique_id}, limit = 1):
+        collection_users.insert_one({'_id': unique_id, 'name': users_name, 'email': users_email, 'picture': picture}) #check if profile picture the same !
         
     return redirect(url_for('render_main_page'))
 
@@ -145,11 +146,12 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
+    collection_spaces.update({_id : ObjectId('6237a59f1587f8cffe50d11c')}, {$set : {"Chat.1.content" : "New content B"}})
+
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
 def render_main_page():
-    
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
     return render_template('index.html', username = session['users_name'], room = '1')
     return render_template('home.html')#, username = session['users_name'], room = '1')
