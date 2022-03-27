@@ -13,14 +13,17 @@
   </head>
   <body>
     <div id="first-all">
-    <div id="background">
-    </div>
-    <div id="chat">
-      <form id="message_input_form">
-        <input type="text" id="message_input" placeholder="Enter message">
-        <button type="submit">Send</button>
-      </form>
-    </div>
+      <div id="background">
+      </div>
+      <div id="chat">
+        <div id="messages">
+          {{ messaages }}
+        </div>
+        <form id="message_input_form">
+          <input type="text" id="message_input" placeholder="Enter message">
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
     
 <!--     <div id="content">
@@ -74,13 +77,13 @@
     socket.on('recieve_message', function (data) {
       const newMode = document.createElement('div');
       newMode.innerHTML = '<b>'+ data.username + ':</b> ' + data.message;
-      document.getElementById('chat').appendChild(newMode);
+      document.getElementById('messages').appendChild(newMode);
     });
     
     socket.on('join_room_announcement', function (data) {
       const newMode = document.createElement('div');
       newMode.innerHTML = data.username + ' has joined';
-      document.getElementById('chat').appendChild(newMode);
+      document.getElementById('messages').appendChild(newMode);
     });
   </script>
 </html>
