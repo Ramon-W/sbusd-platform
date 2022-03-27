@@ -147,14 +147,17 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    collection_messages.insert_one({'from': data['username'], 'room': data['room'], 'datetime': 'Chewsday', 'message': data['message']})
+    collection_messages.insert_one({'name': data['username'], 'room': data['room'], 'datetime': 'Chewsday', 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
 def render_main_page():
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
     messages = collection_messages.find({'room': '1'})
-    return render_template('index.html', username = session['users_name'], room = '1', messaages = messages)
+    chat_contents = ''
+    for message in messages:
+        chat_contents += '<div><b>' + message.get('name') + ':</b> ' + message.get('message') + '</div>'
+    return render_template('index.html', username = session['users_name'], room = '1', messaages = Markup(message))
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
