@@ -31,6 +31,7 @@ client = pymongo.MongoClient(connection_string)
 db = client[db_name]
 collection_users = db['Users']
 collection_spaces = db['Spaces']
+collection_messages = db['Messages']
 
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
@@ -146,7 +147,7 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    collection_spaces.update({_id : ObjectId('6237a59f1587f8cffe50d11c')}, {$set : {"Chat.1.content" : "New content B"}})
+    collection_messages.insert_one({'from': data['username'], 'room': data['room'], 'datetime': 'Chewsday', 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
