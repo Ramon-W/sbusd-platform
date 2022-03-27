@@ -147,7 +147,6 @@ def join(data):
 @socketio.on('send_message')
 def send_message(data):
     collection_spaces.update({_id : ObjectId('6237a59f1587f8cffe50d11c')}, {$set : {"Chat.1.content" : "New content B"}})
-
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
