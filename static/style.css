@@ -16,6 +16,25 @@ img { /* make images and create button undraggable */
   background-size: cover;
   z-index: -1;
 }
+#header {
+  width: 280px;
+  height: 80px;
+  background-color: white;
+}
+#information {
+  width: 280px;
+  height: 80px;
+  background-color: white;
+}
+#channels {
+  
+}
+#chat {
+  
+}
+#members {
+  
+}
 #footer {
   position: fixed;
   bottom: 0;
