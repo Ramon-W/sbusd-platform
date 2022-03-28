@@ -16,7 +16,7 @@ img { /* make images and create button undraggable */
   background-size: cover;
   z-index: -1;
 }
-#content { /* make calc good on all browsers */
+#content { /* make calc good on all browsers ; Make margin and padding 0 because of broswer differences ; Make no horizontal scroll at small screen sizes*/
   display: grid;
   grid-template-rows: 80px calc(100vh - 130px);
   grid-template-columns: 280px minmax(0px, auto) 280px;
