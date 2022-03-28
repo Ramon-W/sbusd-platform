@@ -50,6 +50,7 @@ img { /* make images and create button undraggable */
   display: flex;
   flex-direction: column;
   background: grey;
+  overflow-y: scroll;
 }
 #message_input_form {
   text-align: center;
@@ -59,7 +60,6 @@ img { /* make images and create button undraggable */
   margin-left: 80px;
   height: 40px;
   border-radius: 4px;
-  border: 1px solid black;
   background: white;
 }
 #message_input { /* different highlight on click */
@@ -154,4 +154,5 @@ img { /* make images and create button undraggable */
   border-radius: 10%;
   margin-right: 3px;
 }
+
 
