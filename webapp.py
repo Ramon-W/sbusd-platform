@@ -165,11 +165,7 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST':
-        chat_history_cursor = collection_messages.find({'room': '1'})
-        for message in chat_history_cursor: #get photo
-            
         chat_history = dumps(list(collection_messages.find({'room': '1'}))) #LIMITs, 
-        
         return Response(chat_history, mimetype='application/json')
     
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
