@@ -18,7 +18,10 @@ $(document).ready(function(){
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
         chat_history.forEach(function(item) {
-          alert(item.name)
+          const newMode = document.createElement('div');
+          newMode.className = 'message';
+          newMode.innerHTML = '<b>' + item.name + ':</b> ' + item.message + item.picture + String(item.datetime);
+          document.getElementById('messages').appendChild(newMode);
         });
         alert(JSON.stringify(chat_history));
       } 
