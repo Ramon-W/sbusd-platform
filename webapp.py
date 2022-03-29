@@ -148,7 +148,7 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    utc_dt = datetime.now(timezone.utc)
+    utc_dt = datetime.now(tz=timezone.utc)
     loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
     if int(loc_dt.strftime('%H')) > 12:
         hour = str(int(loc_dt.strftime('%H')) - 12)
