@@ -17,6 +17,9 @@ $(document).ready(function(){
       url: '/chat_history',
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
+        chat_history.forEach(function(item, index) {
+          alert(item + index)
+        });
         alert(JSON.stringify(chat_history));
       } 
     });
