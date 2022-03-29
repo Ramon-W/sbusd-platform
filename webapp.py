@@ -148,17 +148,17 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    utc_dt = datetime.now(pytz.utc)
-    loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
-    if int(loc_dt.strftime('%H')) > 12:
-        hour = str(int(loc_dt.strftime('%H')) - 12)
-        loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
-    else:
-        hour = str(int(loc_dt.strftime('%H')))
-        if hour == '0':
-            hour = '12'
-            loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
-    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
+    #utc_dt = datetime.now(pytz.utc)
+    #loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
+    #if int(loc_dt.strftime('%H')) > 12:
+    #    hour = str(int(loc_dt.strftime('%H')) - 12)
+    #    loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
+    #else:
+    #    hour = str(int(loc_dt.strftime('%H')))
+    #    if hour == '0':
+    #        hour = '12'
+    #        loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
+    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': 'nowww', 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
@@ -174,8 +174,7 @@ def render_main_page():
 
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
-    if request.method == 'POST':
-        
+    if request.method == 'POST': #get data for the room that user is currently in
         chat_history = dumps(list(collection_messages.find({'room': '1'}))) #LIMITs, 
         return Response(chat_history, mimetype='application/json')
     
