@@ -11,6 +11,7 @@ import requests
 from flask_talisman import Talisman
 
 from bson.objectid import ObjectId
+from bson.json_util import dumps
 
 #import pprint
 #import sys
@@ -164,8 +165,8 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST':
-        chat_history = collection_messages.find({'room': '1'})
-        return jsonify(chat_history)
+        chat_history = list(collection_messages.find({'room': '1'}))
+        return dumps(chat_history)
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
