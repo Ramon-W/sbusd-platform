@@ -165,8 +165,8 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST':
-        chat_history = list(collection_messages.find({'room': '1'}))
-        return dumps(chat_history)
+        chat_history = dumps(list(collection_messages.find({'room': '1'})))
+        return jsonify(chat_history)
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
