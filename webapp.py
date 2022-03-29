@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit, join_room
 import json
 import os
 
-from flask import Flask, redirect, Markup, url_for, session, request, jsonify
+from flask import Flask, redirect, Markup, url_for, session, request, jsonify, Response
 from flask import render_template
 
 from oauthlib.oauth2 import WebApplicationClient
@@ -11,7 +11,7 @@ import requests
 from flask_talisman import Talisman
 
 from bson.objectid import ObjectId
-from bson.json_util import dumps, loads
+from bson.json_util import dumps
 
 #import pprint
 #import sys
@@ -166,7 +166,8 @@ def render_main_page():
 def chat_history():
     if request.method == 'POST':
         chat_history = dumps(list(collection_messages.find({'room': '1'})))
-        return loads(chat_history)
+        return Response(chat_history,  mimetype='application/json')
+        return jsonify(chat_history)
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
