@@ -16,9 +16,9 @@ from bson.json_util import dumps
 #import pprint
 #import sys
 import pymongo
-from datetime import datetime, date, timedelta
-from pytz import timezone
-import pytz
+#import pytz
+#from pytz import timezone
+from datetime import datetime, date, timedelta, timezone
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_CLIENT_SECRET = os.environ['GOOGLE_CLIENT_SECRET']
@@ -148,7 +148,7 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    utc_dt = datetime.now(tz=timezone.utc)
+    utc_dt = datetime.now().replace(tzinfo=timezone.utc)
     loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
     if int(loc_dt.strftime('%H')) > 12:
         hour = str(int(loc_dt.strftime('%H')) - 12)
