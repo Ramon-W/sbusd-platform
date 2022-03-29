@@ -17,8 +17,8 @@ from bson.json_util import dumps
 #import sys
 import pymongo
 from datetime import datetime, date, timedelta
-#from pytz import timezone
-#import pytz
+from pytz import timezone
+import pytz
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_CLIENT_SECRET = os.environ['GOOGLE_CLIENT_SECRET']
@@ -148,7 +148,17 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': datetime.now(), 'message': data['message']})
+    utc_dt = datetime.now(tzinfo=pytz.utc)
+    loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
+    if int(loc_dt.strftime('%H')) > 12:
+        hour = str(int(loc_dt.strftime('%H')) - 12)
+        loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
+    else:
+        hour = str(int(loc_dt.strftime('%H')))
+    if hour == '0':
+        hour = '12'
+        loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
+    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
@@ -165,6 +175,7 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST':
+        
         chat_history = dumps(list(collection_messages.find({'room': '1'}))) #LIMITs, 
         return Response(chat_history, mimetype='application/json')
     
