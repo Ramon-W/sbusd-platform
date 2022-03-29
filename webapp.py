@@ -16,7 +16,7 @@ from bson.json_util import dumps
 #import pprint
 #import sys
 import pymongo
-#from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta
 #from pytz import timezone
 #import pytz
 
@@ -148,7 +148,7 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    collection_messages.insert_one({'name': data['username'], 'room': data['room'], 'datetime': 'Chewsday', 'message': data['message']})
+    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': datetime.now(), 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
@@ -165,10 +165,13 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST':
-        chat_history = dumps(list(collection_messages.find({'room': '1'})))
-        return Response(chat_history,  mimetype='application/json')
-        return jsonify(chat_history)
-
+        chat_history_cursor = collection_messages.find({'room': '1'})
+        for message in chat_history_cursor: #get photo
+            
+        chat_history = dumps(list(collection_messages.find({'room': '1'}))) #LIMITs, 
+        
+        return Response(chat_history, mimetype='application/json')
+    
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
     if request.method == 'POST':
