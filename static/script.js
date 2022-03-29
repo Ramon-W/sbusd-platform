@@ -17,9 +17,8 @@ $(document).ready(function(){
       url: '/chat_history',
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
-        chat_history = JSON.stringify(chat_history)
-        chat_history.forEach(function(item, index) {
-          alert(item)
+        chat_history.data.forEach(function(item) {
+          alert(item.name)
         });
         alert(JSON.stringify(chat_history));
       } 
