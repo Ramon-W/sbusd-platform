@@ -51,11 +51,20 @@ img { /* make images and create button undraggable */
   flex-direction: column;
   background: grey;
   overflow-y: scroll;
+  flex-direction: column-reverse
 }
-#message_input_form {
+/* #message_input_form {
   text-align: center;
   margin-top: auto;
   margin-bottom: 20px;
+  margin-right: 80px;
+  margin-left: 80px;
+  height: 40px;
+  border-radius: 4px;
+  background: white;
+} */
+#message_input_form {
+  position: sticky;
   margin-right: 80px;
   margin-left: 80px;
   height: 40px;
