@@ -65,8 +65,10 @@ img { /* make images and create button undraggable */
 } */
 #message_input_form {
   position: sticky;
-  margin-right: 80px;
-  margin-left: 80px;
+  position: -webkit-sticky;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 20px;
   height: 40px;
   border-radius: 4px;
   background: white;
