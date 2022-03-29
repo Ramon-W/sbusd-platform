@@ -148,16 +148,16 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    #utc_dt = datetime.now(tzinfo=pytz.utc)
-    #loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
-    #if int(loc_dt.strftime('%H')) > 12:
-    #    hour = str(int(loc_dt.strftime('%H')) - 12)
-    #    loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
-    #else:
-    #    hour = str(int(loc_dt.strftime('%H')))
-    #if hour == '0':
-    #    hour = '12'
-    #    loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
+    utc_dt = datetime.now(tzinfo=pytz.utc)
+    loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
+    if int(loc_dt.strftime('%H')) > 12:
+        hour = str(int(loc_dt.strftime('%H')) - 12)
+        loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
+    else:
+        hour = str(int(loc_dt.strftime('%H')))
+        if hour == '0':
+            hour = '12'
+            loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
     collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': 'DATETIME', 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
