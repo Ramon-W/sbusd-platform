@@ -20,7 +20,7 @@ $(document).ready(function(){
         chat_history.forEach(function(item) {
           const newMode = document.createElement('div');
           newMode.className = 'message';
-          newMode.innerHTML = '<b>' + item.name + ':</b> ' + item.message + item.picture + String(item.datetime);
+          newMode.innerHTML = '<b>' + item.name + ':</b> ' + item.message + item.picture + item.datetime.toString;
           document.getElementById('messages').appendChild(newMode);
         });
         alert(JSON.stringify(chat_history));
