@@ -169,6 +169,7 @@ def render_main_page():
     chat_contents = ''
     for message in messages:
         chat_contents += '<div><b>' + message.get('name') + ':</b> ' + message.get('message') + '</div>'
+    socketio.emit('load_chat_history')
     return render_template('index.html', username = session['users_name'], room = '1', messaages = Markup(chat_contents))
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
