@@ -165,7 +165,7 @@ def send_message(data):
 def render_main_page():
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
     #collection_users = 
-    return render_template('index.html', username = session['users_name'], room = '1')
+    return render_template('index.html', username = session['users_name'], room = '1', profile_picture = session['picture'])
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/chat_history', methods=['GET', 'POST'])
