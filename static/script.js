@@ -11,7 +11,7 @@ $(document).ready(function(){
       } 
     });
   });
-  $("#information").click(function() {
+  socket.on('load_chat_history', function() {
     $.ajax({
       type: "POST",
       url: '/chat_history',
@@ -23,7 +23,7 @@ $(document).ready(function(){
           newMode.innerHTML = '<b>' + item.name + ':</b> ' + item.message + item.picture + item.datetime;
           document.getElementById('messages').appendChild(newMode);
         });
-        alert(JSON.stringify(chat_history));
+        //alert(JSON.stringify(chat_history));
       } 
     });
   });
