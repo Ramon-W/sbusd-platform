@@ -63,11 +63,17 @@ img { /* make images and create button undraggable */
   border-radius: 4px;
   background: white;
 } */
-.message {
+.message-container {
   padding-top: 10px;
   padding-right: 20px;
   padding-left: 20px;
   font-size: 13px;
+}
+.message-title {
+  margin-left: 50px;
+}
+.message {
+  margin-left: 50px;
 }
 .pfp {
   width: 39px;
