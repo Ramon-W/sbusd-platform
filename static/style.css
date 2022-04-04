@@ -76,6 +76,7 @@ img { /* make images and create button undraggable */
 .message {
   margin-left: 50px;
   white-space: initial;
+  word-break: break-all;
 }
 .pfp {
   width: 39px;
