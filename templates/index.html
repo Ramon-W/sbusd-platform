@@ -87,7 +87,6 @@
       newMode.className = 'message-container';
       // Give pfp image default fallback image
       newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + data.datetime + '</span> </p> <p class="message">' + data.message + '</p>';
-      alert('Recieved message');
 //    newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
       document.getElementById('messages').appendChild(newMode);
     });
