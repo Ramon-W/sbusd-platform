@@ -158,14 +158,14 @@ def send_message(data):
         if hour == '0':
             hour = '12'
             loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
-    collection_messages.insert_one({'name': data['username'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
+    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
 def render_main_page():
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
     #collection_users = 
-    return render_template('index.html', username = session['users_name'], room = '1', profile_picture = session['picture'])
+    return render_template('index.html', name = session['users_name'], room = '1', picture = session['picture'])
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/chat_history', methods=['GET', 'POST'])
