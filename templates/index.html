@@ -41,7 +41,7 @@
       <div id="profile">
         <!-- load exclamation mark icon if not showing -->
         <img src={{ profile_picture }} alt="pfp" id="profile_picture">
-        <p id="username">{{ username }}</p>
+        <p id="username">{{ name }}</p>
         <p id="settings">#</p>
       </div>
       <div id="spaces">
@@ -61,7 +61,6 @@
  
     socket.on('connect', function() {
       socket.emit('join_room', {
-        username: '{{ username }}', 
         room: '{{ room }}'
       });
   
@@ -72,9 +71,9 @@
         let message = message_input.value.trim();
         if (message.length) {
           socket.emit('send_message', {
-            username: "{{ username }}",
+            name: "{{ name }}",
             room: "{{ room }}",
-            picture: "{{ profile_picture }}",
+            picture: "{{ picture }}",
             message: message
           });
         }
