@@ -152,18 +152,23 @@ def send_message(data):
     loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
     if int(loc_dt.strftime('%H')) > 12:
         hour = str(int(loc_dt.strftime('%H')) - 12)
-        loc_dt = loc_dt.strftime(hour + ':%M PM')
+        loc_dt = loc_dt.strftime(hour + ':%M PM-%m/%d/%Y')
         #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
     else:
         hour = str(int(loc_dt.strftime('%H')))
         if hour == '0':
             hour = '12'
-        loc_dt = loc_dt.strftime(hour + ':%M AM')
+        loc_dt = loc_dt.strftime(hour + ':%M AM-%m/%d/%Y')
         #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
     data['datetime'] = loc_dt
     collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
+    #use global variables to determine time format since db is in time order
+    #At 8:30 AM
+    #Yesterday at 8:40 AM
+    #On 8/20/2022
+    
 @app.route('/sbhs')
 def render_main_page():
     #when creating the list of all the spaces, make sure they all have their own unique IDs stored
