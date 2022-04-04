@@ -51,6 +51,7 @@ img { /* make images and create button undraggable */
   flex-direction: column;
   background: grey;
   overflow-y: scroll;
+  overflow-x: hidden;
   flex-direction: column-reverse;
 }
 /* #message_input_form {
@@ -74,6 +75,7 @@ img { /* make images and create button undraggable */
 }
 .message {
   margin-left: 50px;
+  white-space: initial;
 }
 .pfp {
   width: 39px;
@@ -89,8 +91,9 @@ img { /* make images and create button undraggable */
   border-radius: 4px;
   background: white;
 }
-#message_input { /* different highlight on click */
+#message_input { /* make textbox (textarea?) expandable for chunked messages; different highlight on click */
   height: 38px; 
+  white-space: initial;
   width: calc(100% - 38px);
   float: left;
   background: transparent;
