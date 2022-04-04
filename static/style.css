@@ -73,6 +73,9 @@ img { /* make images and create button undraggable */
   padding-left: 20px;
   font-size: 13px;
 }
+.message-container:hover {
+  background-color: dimgray;
+}
 .message-title {
   margin-left: 50px;
   grid-column: 2;
