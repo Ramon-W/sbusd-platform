@@ -23,7 +23,6 @@ img { /* make images and create button undraggable */
   height: 100vh;
   width: 100vw;
   gap: 0px;
-  background-color: pink;
 }
 #header {
   grid-column: 1;
@@ -44,6 +43,7 @@ img { /* make images and create button undraggable */
   grid-column: 2;
   grid-row: 2;
   background-color: gray;
+  
 }
 #chat {
   height: 100%;
@@ -51,7 +51,7 @@ img { /* make images and create button undraggable */
   flex-direction: column;
   background: grey;
   overflow-y: scroll;
-  flex-direction: column-reverse
+  flex-direction: column-reverse;
 }
 /* #message_input_form {
   text-align: center;
@@ -85,8 +85,7 @@ img { /* make images and create button undraggable */
   position: -webkit-sticky;
   margin-right: 15px;
   margin-left: 15px;
-  margin-bottom: 20px;
-  height: 40px;
+  bottom: 20px;
   border-radius: 4px;
   background: white;
 }
@@ -184,3 +183,21 @@ img { /* make images and create button undraggable */
 }
 
 
+::-webkit-scrollbar {
+  width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+  background-color: darkgray;
+  border-radius: 10px;
+  margin-top: 4px;
+  margin-bottom: 45px;
+  
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
