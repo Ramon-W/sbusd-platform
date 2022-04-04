@@ -158,8 +158,8 @@ def send_message(data):
         if hour == '0':
             hour = '12'
             loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
-    data['datetime'] = loc_dt
-    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
+    data['datetime'] = 'loc_dt'
+    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': 'loc_dt', 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
 
 @app.route('/sbhs')
