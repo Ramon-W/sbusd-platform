@@ -102,7 +102,14 @@
       url: '/chat_history',
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
+      //  var datetimeFormat = 0;             PASS IN CURRENT TIME TO COMPARE TO PAST TIME OKAY RAMON? 
         chat_history.forEach(function(item) {
+          
+          //if (datetimeFormat == 0) {
+         //   if ()
+         //   datetimeFormat
+        //  }
+          
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
           // Give pfp image default fallback image
