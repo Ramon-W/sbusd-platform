@@ -83,7 +83,6 @@
     });
 
     socket.on('recieve_message', function (data) {
-      newMode.innerHTML = '<b>'+ data.username + ':</b> ' + data.message;
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
       // Give pfp image default fallback image
