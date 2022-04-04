@@ -66,8 +66,8 @@ img { /* make images and create button undraggable */
 } */
 .message-container {
   display: grid;
-  grid-template-rows: 28px auto;
-  grid-template-columns: 10px auto;
+  grid-template-rows: 21px auto;
+  grid-template-columns: 8px auto;
   padding-top: 10px;
   padding-right: 20px;
   padding-left: 20px;
@@ -86,9 +86,8 @@ img { /* make images and create button undraggable */
   grid-row: 2;
 }
 .pfp {
-  margin-top: -1px;
-  width: 39px;
-  height: 39px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   grid-column: 1;
   grid-row: 1 / 3;
