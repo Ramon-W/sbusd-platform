@@ -103,9 +103,9 @@
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
         var now = new Date();
-        var day = String(today.getDate()).padStart(2, '0');
-        var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var year = today.getFullYear();
+        var day = String(now.getDate()).padStart(2, '0');
+        var month = String(now.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var year = now.getFullYear();
         now = month + '/' + day + '/' + year;
         
         
