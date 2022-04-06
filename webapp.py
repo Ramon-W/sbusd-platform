@@ -150,15 +150,17 @@ def join(data):
 def send_message(data):
     utc_dt = datetime.now() #Heroku uses utc by default
     loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
+    month = str(int(loc_dt.strftime('%m')))
+    day = str(int(loc_dt.strftime('%d')))
     if int(loc_dt.strftime('%H')) > 12:
         hour = str(int(loc_dt.strftime('%H')) - 12)
-        loc_dt = loc_dt.strftime(hour + ':%M PM-%m/%d/%Y')
+        loc_dt = loc_dt.strftime(hour + ':%M PM-' + month + '/' + day + '/%Y')
         #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
     else:
         hour = str(int(loc_dt.strftime('%H')))
         if hour == '0':
             hour = '12'
-        loc_dt = loc_dt.strftime(hour + ':%M AM-%m/%d/%Y')
+        loc_dt = loc_dt.strftime(hour + ':%M AM-' + month + '/' + day + '/%Y')
         #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
     data['datetime'] = loc_dt
     collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': loc_dt, 'message': data['message']})
