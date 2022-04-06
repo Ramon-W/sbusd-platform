@@ -102,6 +102,13 @@
       url: '/chat_history',
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
+        var now = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var year = today.getFullYear();
+        now = month + '/' + day + '/' + year;
+        
+        
       //  var datetimeFormat = 0;             PASS IN CURRENT TIME TO COMPARE TO PAST TIME OKAY RAMON? 
         chat_history.forEach(function(item) {
           
@@ -113,7 +120,7 @@
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
           // Give pfp image default fallback image
-          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + item.datetime + '</span> </p> <p class="message">' + item.message + '</p>';
+          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + now + '</span> </p> <p class="message">' + item.message + '</p>';
           
 //           newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
           document.getElementById('messages').appendChild(newMode);
