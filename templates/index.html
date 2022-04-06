@@ -88,10 +88,12 @@
     });
 
     socket.on('recieve_message', function (data) {
+      var messageMoment = moment(data.datetime).local();
+      messageMoment = 'Today at ' + messageMoment.format('h:mm:ss A')
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
       // Give pfp image default fallback image
-      newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + data.datetime + '</span> </p> <p class="message">' + data.message + '</p>';
+      newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
 //    newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
       document.getElementById('messages').appendChild(newMode);
     });
@@ -111,21 +113,30 @@
         var timeDisplayMode = 0;
         chat_history.forEach(function(item) {
           var messageMoment = moment(item.datetime).local();
-          var timeDifference = nowMoment.diff(messageMoment, 'days');
-        //  if (timeDisplayMode == 0) {
-        //    if (nowMoment.diff(moment(item.datetime), 'days') >= 1) {
-        //    }
-        //    else {
-        //      timeDisplayMode = 1;
-        //    }
-       //   }
-        //  else if (timeDisplayMode == 1) {
-            
-       //   }
+          var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
+          if (timeDisplayMode == 0) {
+            if (timeDifference <= 1) {
+              messageMoment = 'Today at ' + messageMoment.format('h:mm:ss A')
+            }
+            else if (timeDifference <= 2) {
+              timeDisplayMode = 1;
+              messageMoment = 'Yesterday at ' + messageMoment.format('h:mm:ss A')
+            }
+            else {
+              timeDisplayMode = 2;
+              messageMoment = messageMoment.format('M/D/YYYY')
+            }
+          }
+          else if (timeDisplayMode == 1) {
+            messageMoment = 'Yesterday at ' + messageMoment.format('h:mm:ss A')
+          }
+          else {
+            messageMoment = messageMoment.format('M/D/YYYY')
+          }
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
           // Give pfp image default fallback image
-          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment.format() + '</span> </p> <p class="message">' + item.message + '</p>';
+          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + item.message + '</p>';
           
 //           newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
           document.getElementById('messages').appendChild(newMode);
