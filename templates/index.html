@@ -108,25 +108,24 @@
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
         var nowMoment = moment();
-        var now = new Date();
-        var day = String(now.getDate()).padStart(2, '0');
-        var month = String(now.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var year = now.getFullYear();
-        now = month + '/' + day + '/' + year;
-        
-        
-      //  var datetimeFormat = 0;             PASS IN CURRENT TIME TO COMPARE TO PAST TIME OKAY RAMON? 
+        var timeDisplayMode = 0;
         chat_history.forEach(function(item) {
-          
-          //if (datetimeFormat == 0) {
-         //   if ()
-         //   datetimeFormat
-        //  }
-          
+          var messageMoment = moment(item.datetime).local();
+          var timeDifference = nowMoment.diff(messageMoment, 'days');
+        //  if (timeDisplayMode == 0) {
+        //    if (nowMoment.diff(moment(item.datetime), 'days') >= 1) {
+        //    }
+        //    else {
+        //      timeDisplayMode = 1;
+        //    }
+       //   }
+        //  else if (timeDisplayMode == 1) {
+            
+       //   }
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
           // Give pfp image default fallback image
-          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + now + '</span> </p> <p class="message">' + item.message + '</p>';
+          newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment.format() + '</span> </p> <p class="message">' + item.message + '</p>';
           
 //           newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
           document.getElementById('messages').appendChild(newMode);
