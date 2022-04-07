@@ -104,6 +104,9 @@ img { /* make images and create button undraggable */
   grid-row: 1 / 3;
 }
 #message_input_form {
+  max-height: 200px;
+  overflow: auto;
+  white-space: pre-wrap;
   margin-bottom: 20px;
   margin-right: 15px;
   margin-left: 15px;
@@ -112,7 +115,8 @@ img { /* make images and create button undraggable */
   background: white;
 }
 #message_input { /* make textbox (textarea?) expandable for chunked messages; different highlight on click */
-  height: 38px; 
+  min-height: 20px; 
+  overflow: auto;
   width: calc(100% - 38px);
   float: left;
   background: transparent;
