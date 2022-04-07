@@ -148,30 +148,10 @@ def join(data):
     
 @socketio.on('send_message')
 def send_message(data):
-    test_dt = datetime.now().isoformat() + 'Z'
-    utc_dt = datetime.now()
-    #Heroku uses utc by default
-    loc_dt = utc_dt.astimezone(timezone('America/Los_Angeles'))
-    month = str(int(loc_dt.strftime('%m')))
-    day = str(int(loc_dt.strftime('%d')))
-    if int(loc_dt.strftime('%H')) > 12:
-        hour = str(int(loc_dt.strftime('%H')) - 12)
-        loc_dt = loc_dt.strftime(hour + ':%M PM-' + month + '/' + day + '/%Y')
-        #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M PM PT')
-    else:
-        hour = str(int(loc_dt.strftime('%H')))
-        if hour == '0':
-            hour = '12'
-        loc_dt = loc_dt.strftime(hour + ':%M AM-' + month + '/' + day + '/%Y')
-        #loc_dt = loc_dt.strftime('%m/%d/%Y, ' + hour + ':%M AM PT')
-    data['datetime'] = loc_dt
-    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': test_dt, 'message': data['message']})
+    utc_dt = datetime.now().isoformat() + 'Z'
+    data['datetime'] = utc_dt
+    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': utc_dt, 'message': data['message']})
     socketio.emit('recieve_message', data, room = data['room'])
-
-    #use global variables to determine time format since db is in time order
-    #At 8:30 AM
-    #Yesterday at 8:40 AM
-    #On 8/20/2022
     
 @app.route('/sbhs')
 def render_main_page():
