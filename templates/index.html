@@ -114,7 +114,7 @@
           var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
           if (timeDisplayMode == 0) {
             if (timeDifference >= 2) {
-              messageMoment = 'On ' + messageMoment.format('M/D/YYYY');
+              messageMoment = 'on ' + messageMoment.format('M/D/YYYY');
             }
             else if (timeDifference >= 1) {
               timeDisplayMode = 1;
@@ -122,7 +122,7 @@
             }
             else {
               timeDisplayMode = 2;
-              messageMoment = 'At ' + messageMoment.format('h:mm A');
+              messageMoment = 'at ' + messageMoment.format('h:mm A');
             }
           }
           else if (timeDisplayMode == 1) {
@@ -130,11 +130,11 @@
               messageMoment = 'Yesterday at ' + messageMoment.format('h:mm A');
             }
             else {
-              messageMoment = 'At ' + messageMoment.format('h:mm A');
+              messageMoment = 'at ' + messageMoment.format('h:mm A');
             }
           }
           else {
-            messageMoment = 'At ' + messageMoment.format('h:mm A');
+            messageMoment = 'at ' + messageMoment.format('h:mm A');
           }
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
