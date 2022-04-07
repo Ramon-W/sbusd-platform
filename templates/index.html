@@ -85,7 +85,7 @@
 
     socket.on('recieve_message', function (data) {
       var messageMoment = moment(data.datetime).local();
-      messageMoment = 'Today at ' + messageMoment.format('h:mm:ss A')
+      messageMoment = 'at ' + messageMoment.format('h:mm A')
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
       // Give pfp image default fallback image
@@ -112,11 +112,11 @@
           var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
           if (timeDisplayMode == 0) {
             if (timeDifference <= 1) {
-              messageMoment = 'Today at ' + messageMoment.format('h:mm:ss A')
+              messageMoment = ' at ' + messageMoment.format('h:mm A')
             }
             else if (timeDifference <= 2) {
               timeDisplayMode = 1;
-              messageMoment = 'Yesterday at ' + messageMoment.format('h:mm:ss A')
+              messageMoment = 'at ' + messageMoment.format('h:mm A') + ' yesterday'
             }
             else {
               timeDisplayMode = 2;
@@ -124,7 +124,7 @@
             }
           }
           else if (timeDisplayMode == 1) {
-            messageMoment = 'Yesterday at ' + messageMoment.format('h:mm:ss A')
+            messageMoment = 'at ' + messageMoment.format('h:mm A') + ' yesterday'
           }
           else {
             messageMoment = messageMoment.format('M/D/YYYY')
