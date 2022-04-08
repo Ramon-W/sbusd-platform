@@ -118,6 +118,7 @@ img { /* make images and create button undraggable */
   float: left;
   background: transparent;
   border: none;
+  resize: none;
 }
 #submit {
   float: right;
