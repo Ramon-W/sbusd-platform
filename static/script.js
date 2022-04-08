@@ -1,4 +1,10 @@
 $(document).ready(function(){
+  var textarea = document.getElementById("message_input");
+  var limit = 200;
+  textarea.oninput = function() {
+    textarea.style.height = "";
+    textarea.style.height = Math.min(textarea.scrollHeight, 300) + "px";
+  }; 
   $(".space").click(function() {
     $.ajax({
       type: "POST",
