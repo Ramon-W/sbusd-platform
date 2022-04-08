@@ -87,7 +87,7 @@
 
     socket.on('recieve_message', function (data) {
       var messageMoment = moment(data.datetime).local();
-      messageMoment = 'At ' + messageMoment.format('h:mm A')
+      messageMoment = 'at ' + messageMoment.format('h:mm A')
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
       // Give pfp image default fallback image
