@@ -32,7 +32,7 @@ function handleEnter(evt) {
 
 // Handle both keydown and keypress for Opera, which only allows default
 // key action to be suppressed in keypress
-$("message_input").keydown(handleEnter).keypress(handleEnter);
+$(textarea).keydown(handleEnter).keypress(handleEnter);
   $(".space").click(function() {
     $.ajax({
       type: "POST",
