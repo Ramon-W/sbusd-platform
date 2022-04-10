@@ -61,7 +61,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
   <script type="text/javascript" charset="utf-8">
     var socket = io();
-    let last_message = '';
+    //let last_message = '';
     
     socket.on('connect', function() {
       socket.emit('join_room', {
@@ -73,7 +73,7 @@
       document.getElementById('message_input_form').onsubmit = function (e) {
         e.preventDefault();
         let message = message_input.value.trim();
-        let last_message = message;
+        //let last_message = message;
         if (message.length) {
           socket.emit('send_message', {
             name: "{{ name }}",
@@ -84,7 +84,7 @@
         }
         message_input.value = '';
         message_input.focus();
-        last_message = message;
+        //last_message = message;
       }
     });
 
