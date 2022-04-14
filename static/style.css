@@ -75,7 +75,7 @@ img { /* make images and create button undraggable and unhighlitable*/
 .message-container {
   display: grid;
   color: #d7d9da;
-  grid-template-columns: 6px auto;
+  grid-template-columns: 2px auto;
   grid-auto-rows: minmax(min-content, max-content);
   padding-top: 6px;
   padding-right: 20px;
@@ -122,13 +122,15 @@ img { /* make images and create button undraggable and unhighlitable*/
   bottom: 20px;
   border-radius: 4px;
   background: white;
+  min-height: 44px;
 }
 #message_input { /* make textbox (textarea?) expandable for chunked messages; different highlight on click */
-  min-height: 20px; 
-  overflow: auto;
   width: calc(100% - 38px);
   float: left;
+  padding-left: 10px;
+  padding-top: 10px;
   background: transparent;
+  
   border: none;
   resize: none;
 }
