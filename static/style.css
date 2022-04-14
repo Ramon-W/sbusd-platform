@@ -81,7 +81,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   padding-right: 20px;
   padding-left: 20px;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .message-container:hover {
   background-color: #32353a;
