@@ -95,14 +95,14 @@
       sent_latest_message = false;
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
-      if (data.combine == 'true') {
+      if (data.combine == 'false') {
         var messageMoment = moment(data.datetime).local();
         messageMoment = 'at ' + messageMoment.format('h:mm A')
         // Give pfp image default fallback image
         newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
       }
       else {
-        newMode.innerHTML = '<p class="message"></p>'
+        newMode.innerHTML = '<p class="message">' + data.message + '</p>'
       }
       document.getElementById('messages').appendChild(newMode);
     });
