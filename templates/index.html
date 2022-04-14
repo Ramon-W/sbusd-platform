@@ -102,7 +102,7 @@
         newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
       }
       else {
-        newMode.innerHTML = '<p class="message">' + data.message + '</p>'
+        newMode.innerHTML = '<p class="message-combine">' + data.message + '</p>'
       }
       document.getElementById('messages').appendChild(newMode);
     });
@@ -118,12 +118,12 @@
       url: '/chat_history',
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
-        const newMode = document.createElement('div');
-        newMode.className = 'message-container';
-        if (item.combine != 'e') {
-          var nowMoment = moment();
-          var timeDisplayMode = 0;
-          chat_history.forEach(function(item) {
+        var nowMoment = moment();
+        var timeDisplayMode = 0;
+        chat_history.forEach(function(item) {
+          const newMode = document.createElement('div');
+          newMode.className = 'message-container';
+          if (item.combine != '2') {
             var messageMoment = moment(item.datetime).local();
             var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
             if (timeDisplayMode == 0) {
@@ -151,9 +151,12 @@
               messageMoment = 'at ' + messageMoment.format('h:mm A');
             }
             newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + item.message + '</p>';
-            document.getElementById('messages').appendChild(newMode);
-          });
-        }
+          }
+          else {
+            newMode.innerHTML = '<p class="message-combine">' + item.message + '</p>'
+          }
+          document.getElementById('messages').appendChild(newMode);
+        });
       } 
     });
     
