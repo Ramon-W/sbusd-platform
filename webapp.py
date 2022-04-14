@@ -153,7 +153,8 @@ def send_message(data):
     data['datetime'] = utc_dt
     data['message'] = re.sub('\\\n\\n\\\n+', '\\n\\n', data['message'])
     latest_message = collection_messages.find_one({'room': data['room']}, sort=[( '_id', pymongo.DESCENDING )])
-    duration = datetime.now - datetime.fromisoformat(latest_message.get('datetime').replace('Z', ''))
+    latest_message_datetime = datetime.fromisoformat(latest_message.get('datetime').replace('Z', ''))
+    duration = datetime.now - latest_message_datetime
     if latest_message.get('name') == session['users_name'] and latest_message.get('picture') == session['picture'] and duration.total_seconds() > 5:
         data['combine'] = 'false'
     else:
