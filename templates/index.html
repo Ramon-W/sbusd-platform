@@ -61,6 +61,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
   <script type="text/javascript" charset="utf-8">
     var socket = io();
+    let sent_latest_message = false;
     //let last_message = '';
     
     socket.on('connect', function() {
@@ -79,23 +80,30 @@
             name: "{{ name }}",
             room: "{{ room }}",
             picture: "{{ picture }}",
-            message: message
+            message: message,
+            combine: sent_latest_message
           });
         }
         message_input.value = '';
         message_input.focus();
+        sent_latest_message = true;
         //last_message = message;
       }
     });
 
     socket.on('recieve_message', function (data) {
-      var messageMoment = moment(data.datetime).local();
-      messageMoment = 'at ' + messageMoment.format('h:mm A')
+      sent_latest_message = false;
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
-      // Give pfp image default fallback image
-      newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
-//    newMode.innerHTML = '<p class="name"> <b>' + item.name + '</b> </p> <p class="message">' + item.message + '</p><img class="pfp" src="' + item.picture + '" alt="!">' + item.datetime;
+      if (data.combine == 'true') {
+        var messageMoment = moment(data.datetime).local();
+        messageMoment = 'at ' + messageMoment.format('h:mm A')
+        // Give pfp image default fallback image
+        newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
+      }
+      else {
+        newMode.innerHTML = '<p class="message"></p>'
+      }
       document.getElementById('messages').appendChild(newMode);
     });
     
