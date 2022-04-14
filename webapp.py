@@ -154,8 +154,8 @@ def send_message(data):
     data['message'] = re.sub('\\\n\\n\\\n+', '\\n\\n', data['message'])
     latest_message = collection_messages.find_one({'room': data['room']}, sort=[( '_id', pymongo.DESCENDING )])
     duration = datetime.now() - datetime.fromisoformat(latest_message.get('datetime').replace('Z', ''))
-    if latest_message.get('name') == session['users_name'] and latest_message.get('picture') == session['picture'] and duration.total_seconds() > 5:
-        data['combine'] = 'false'
+    if latest_message.get('name') == session['users_name'] and latest_message.get('picture') == session['picture'] and duration.total_seconds() < 5:
+        data['combine'] = 'true'
     else:
         data['combine'] = 'false'
     collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': utc_dt, 'message': data['message'], 'combine': data['combine']})
