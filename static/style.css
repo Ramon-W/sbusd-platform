@@ -38,26 +38,26 @@ img { /* make images and create button undraggable and unhighlitable*/
 #information {
   grid-column: 2 / 4;
   grid-row: 1;
-  background-color: red;
+  background-color: hotpink;
 }
 #channels {
   grid-column: 1;
   grid-row: 2;
-  background-color: blue;
+  background-color: gray;
 }
 #chats {
   display: flex;
   flex-direction: column;
   grid-column: 2;
   grid-row: 2;
-  background-color: gray;
+  background-color: #36393e;
   
 }
 #chat {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: grey;
+  background: #36393e;
   overflow-y: scroll;
   overflow-x: hidden;
   flex-direction: column-reverse;
@@ -74,6 +74,7 @@ img { /* make images and create button undraggable and unhighlitable*/
 } */
 .message-container {
   display: grid;
+  color: #d7d9da;
   grid-template-columns: 6px auto;
   grid-auto-rows: minmax(min-content, max-content);
   padding-top: 6px;
@@ -83,7 +84,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   margin-top: 5px;
 }
 .message-container:hover {
-  background-color: dimgray;
+  background-color: #32353a;
 }
 .message-title {
   margin-left: 50px;
@@ -105,6 +106,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   grid-column: 2;
   grid-row: 2;
   white-space: pre-wrap;
+
 }
 .pfp {
   width: 38px;
@@ -146,7 +148,7 @@ img { /* make images and create button undraggable and unhighlitable*/
 #members {
   grid-column: 3;
   grid-row: 2;
-  background-color: pink;
+  background-color: gray;
 }
 #footer {
   position: fixed;
@@ -166,7 +168,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   margin-left: 50px;
   margin-top: 2px;
   border-radius: 2px;
-  background-color: pink;
+  background-color: hotpink;
   overflow: hidden;
 }
 #profile_picture {
