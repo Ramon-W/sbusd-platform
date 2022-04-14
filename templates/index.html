@@ -90,14 +90,15 @@
 
     socket.on('recieve_message', function (data) {
       const newMode = document.createElement('div');
-      newMode.className = 'message-container';
       if (data.combine == 'false') {
+        newMode.className = 'message-container';
         var messageMoment = moment(data.datetime).local();
         messageMoment = 'at ' + messageMoment.format('h:mm A')
         // Give pfp image default fallback image
         newMode.innerHTML = '<img class="pfp" src="' + data.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + data.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + data.message + '</p>';
       }
       else {
+        newMode.className = 'message-container-combine';
         newMode.innerHTML = '<p class="message-combine">' + data.message + '</p>'
       }
       document.getElementById('messages').appendChild(newMode);
@@ -118,8 +119,8 @@
         var timeDisplayMode = 0;
         chat_history.forEach(function(item) {
           const newMode = document.createElement('div');
-          newMode.className = 'message-container';
           if (item.combine == 'false') {
+            newMode.className = 'message-container';
             var messageMoment = moment(item.datetime).local();
             var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
             if (timeDisplayMode == 0) {
@@ -149,6 +150,7 @@
             newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + item.message + '</p>';
           }
           else {
+            newMode.className = 'message-container-combine';
             newMode.innerHTML = '<p class="message-combine">' + item.message + '</p>'
           }
           document.getElementById('messages').appendChild(newMode);
