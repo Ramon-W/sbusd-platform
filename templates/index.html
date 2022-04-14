@@ -61,7 +61,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
   <script type="text/javascript" charset="utf-8">
     var socket = io();
-    let sent_latest_message = false;
     //let last_message = '';
     
     socket.on('connect', function() {
@@ -80,19 +79,16 @@
             name: "{{ name }}",
             room: "{{ room }}",
             picture: "{{ picture }}",
-            message: message,
-            combine: sent_latest_message
+            message: message
           });
         }
         message_input.value = '';
         message_input.focus();
-        sent_latest_message = true;
         //last_message = message;
       }
     });
 
     socket.on('recieve_message', function (data) {
-      sent_latest_message = false;
       const newMode = document.createElement('div');
       newMode.className = 'message-container';
       if (data.combine == 'false') {
@@ -123,7 +119,7 @@
         chat_history.forEach(function(item) {
           const newMode = document.createElement('div');
           newMode.className = 'message-container';
-          if (item.combine != '2') {
+          if (item.combine == 'false') {
             var messageMoment = moment(item.datetime).local();
             var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
             if (timeDisplayMode == 0) {
