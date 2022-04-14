@@ -158,7 +158,7 @@ def send_message(data):
         data['combine'] = 'false'
     else:
         data['combine'] = 'false'
-    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': utc_dt, 'message': cursor.get('datetime'), 'combine': data['combine']})
+    collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': utc_dt, 'message': data['message'], 'combine': data['combine']})
     socketio.emit('recieve_message', data, room = data['room'])
     
 @app.route('/sbhs')
