@@ -152,7 +152,7 @@ def send_message(data):
     utc_dt = datetime.now().isoformat() + 'Z'
     data['datetime'] = utc_dt
     data['message'] = re.sub('\\\n\\n\\\n+', '\\n\\n', data['message'])
-    cursor = collection_messages.find_one([('datetime', -1)])
+    cursor = collection_messages.find_one({'room': data['room']}, sort=[( '_id', pymongo.DESCENDING )])
     duration = datetime.now - cursor.get('datetime')
     if cursor.get('name') == session['users_name'] and cursor.get('picture') == session['picture'] and duration.total_seconds() > 5:
         data['combine'] = 'false'
