@@ -152,7 +152,7 @@ def send_message(data):
     utc_dt = datetime.now().isoformat() + 'Z'
     data['datetime'] = utc_dt
     data['message'] = re.sub('\\\n\\n\\\n+', '\\n\\n', data['message'])
-    cursor = collection_messages.find().sort([('_id':-1)]).limit(1)
+    cursor = collection_messages.find_one([('datetime', -1)])
     duration = datetime.now - cursor['datetime']
     if cursor['name'] == session['users_name'] and cursor['picture'] == session['picture'] and duration.total_seconds() > 5:
         data['combine'] = 'false'
