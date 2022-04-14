@@ -96,6 +96,8 @@ img { /* make images and create button undraggable and unhighlitable*/
   
 }
 .message {
+  margin-bottom: 5px;
+  padding: 0;
   margin-left: 50px;
   white-space: initial;
   word-break: break-all;
@@ -103,9 +105,6 @@ img { /* make images and create button undraggable and unhighlitable*/
   grid-column: 2;
   grid-row: 2;
   white-space: pre-wrap;
-  margin: none !important; 
-  padding: none !important;
-  
 }
 .pfp {
   width: 38px;
