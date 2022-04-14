@@ -120,7 +120,7 @@
       success: function(chat_history) {
         const newMode = document.createElement('div');
         newMode.className = 'message-container';
-        if (item.combine == 'false') {
+        if (item.combine != 'e') {
           var nowMoment = moment();
           var timeDisplayMode = 0;
           chat_history.forEach(function(item) {
@@ -150,12 +150,10 @@
             else {
               messageMoment = 'at ' + messageMoment.format('h:mm A');
             }
-            // Give pfp image default fallback image
             newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + item.message + '</p>';
-          }
-          document.getElementById('messages').appendChild(newMode);
-        });
-        //alert(JSON.stringify(chat_history));
+            document.getElementById('messages').appendChild(newMode);
+          });
+        }
       } 
     });
     
