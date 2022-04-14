@@ -152,7 +152,7 @@ def send_message(data):
     utc_dt = datetime.now().isoformat() + 'Z'
     data['datetime'] = utc_dt
     data['message'] = re.sub('\\\n\\n\\\n+', '\\n\\n', data['message'])
-    cursor = collection_messages.find().sort({_id:-1}).limit(1)
+    cursor = collection_messages.find().sort({'_id' : -1}).limit(1)
     collection_messages.insert_one({'name': data['name'], 'picture': session['picture'], 'room': data['room'], 'datetime': utc_dt, 'message': data['message'], 'combine': data['combine']})
     socketio.emit('recieve_message', data, room = data['room'])
     
