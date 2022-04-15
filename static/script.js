@@ -24,7 +24,7 @@ $(document).ready(function(){
       } 
     });
   });
-  $(".message-container-combine").hover(function() {
+  $(".message-container-combine").mouseover(function() {
     $(this).find(".message-combine-time").css("visibility", "visible");
   });
 });
