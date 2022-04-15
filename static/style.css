@@ -143,7 +143,6 @@ img { /* make images and create button undraggable and unhighlitable*/
   font-size: 10px;
   grid-column: 1;
   grid-row: 1;
-  visibility: hidden;
 }
 .message-combine {
   padding: 2px;
