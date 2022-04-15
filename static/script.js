@@ -13,9 +13,9 @@ $(document).ready(function(){
     }
   });
   $(".message-container-combine").hover(function() {
-    $(this).css("background-color", "red");
+    $(this).css("visibility", "hidden")
   }, function() {
-    $(this).css("background-color", "red");
+    $(this).css("visibility", "hidden");
   });
       //.find(".message-combine-time").css("visibility", "visible");
   });
