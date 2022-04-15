@@ -1,4 +1,14 @@
 $(document).ready(function(){
+  var scrollToTopBtn = document.getElementById("submit")
+  var chatElement = document.getElementById("chat")
+  function scrollToTop() {
+    // Scroll to top logic
+    rootElement.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+  
   var textarea = document.getElementById("message_input");
   var limit = 200;
   textarea.oninput = function() {
