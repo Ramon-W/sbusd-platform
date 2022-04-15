@@ -35,6 +35,6 @@ $(document).ready(function(){
     });
   });
   $(document).on('click', '.message-container-combine', function(){
-    $(this).hide();
+    $(this).find(".message-combine-time").css("visibility", "hidden");
   });
 });
