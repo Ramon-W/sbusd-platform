@@ -171,7 +171,7 @@ def render_main_page():
 @app.route('/chat_history', methods=['GET', 'POST'])
 def chat_history():
     if request.method == 'POST': #get data for the room that user is currently in
-        chat_history = dumps(list(collection_messages.find({'room': '1'}).sort('_id', pymongo.DESCENDING).skip(1).limit(50))) #LIMITs,
+        chat_history = dumps(list(collection_messages.find({'room': '1'}).sort('_id', pymongo.DESCENDING).skip(int(request.json['i'])).limit(50))) #LIMITs,
         return Response(chat_history, mimetype='application/json')
 
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
