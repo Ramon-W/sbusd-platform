@@ -34,7 +34,10 @@ $(document).ready(function(){
       } 
     });
   });
-  $(document).on('click', '.message-container-combine', function(){
+  $("#chat").on('mouseenter', '.message-container-combine', function(){
+    $(this).find(".message-combine-time").css("visibility", "visible");
+  });
+  $("#chat").on('mouseleave', '.message-container-combine', function(){
     $(this).find(".message-combine-time").css("visibility", "hidden");
   });
 });
