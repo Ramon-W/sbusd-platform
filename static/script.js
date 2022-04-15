@@ -14,6 +14,9 @@ $(document).ready(function(){
   });
   $(".message-container-combine").hover(function() {
     $(this).css("background-color", "red");
+  }, function() {
+    $(this).css("background-color", "red");
+  });
       //.find(".message-combine-time").css("visibility", "visible");
   });
   $(".space").click(function() {
