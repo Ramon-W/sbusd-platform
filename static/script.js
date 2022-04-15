@@ -28,7 +28,7 @@ $(document).ready(function(){
       } 
     });
   });
-  $('.message-container-combine').on('mouseenter mouseleave', function() {
+  $('.message-container-combine').on('mouseenter', function() {
     $(this).hide();
   });
 });
