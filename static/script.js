@@ -1,13 +1,5 @@
 $(document).ready(function(){
-  var scrollToTopBtn = document.getElementById("submit")
-  var chatElement = document.getElementById("chat")
-  function scrollToTop() {
-    // Scroll to top logic
-    chatElement.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }
+  var chatDiv = document.getElementById("chat");
   
   var textarea = document.getElementById("message_input");
   var limit = 200;
@@ -20,6 +12,7 @@ $(document).ready(function(){
         e.preventDefault();
     
         $(this).closest("form").submit();
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
   });
   $(".space").click(function() {
