@@ -13,12 +13,8 @@ $(document).ready(function(){
     }
   });
   $(".message-container-combine").hover(function() {
-    $(this).css("visibility", "hidden")
-  }, function() {
-    $(this).css("visibility", "hidden");
-  });
-      //.find(".message-combine-time").css("visibility", "visible");
-  });
+    $(this).hide()
+  }
   $(".space").click(function() {
     $.ajax({
       type: "POST",
