@@ -12,6 +12,10 @@ $(document).ready(function(){
         $(this).closest("form").submit();
     }
   });
+  $('#submit').click(function() {
+    $('#chat').animate({scrollTop: $(document).height()}, 'slow');
+    return false;
+  });
   $(".space").click(function() {
     $.ajax({
       type: "POST",
