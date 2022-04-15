@@ -12,9 +12,6 @@ $(document).ready(function(){
         $(this).closest("form").submit();
     }
   });
-  $(".message-container-combine").hover(function() {
-    $(this).hide();
-  });
   $(".space").click(function() {
     $.ajax({
       type: "POST",
