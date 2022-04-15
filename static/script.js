@@ -24,7 +24,8 @@ $(document).ready(function(){
       } 
     });
   });
-  $(".message-container-combine").mouseover(function() {
-    $(this).find(".message-combine-time").css("visibility", "visible");
+  $(".message-container-combine").hover(function() {
+    $(this).css("color", "red");
+      //.find(".message-combine-time").css("visibility", "visible");
   });
 });
