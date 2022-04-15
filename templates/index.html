@@ -101,13 +101,13 @@
         newMode.className = 'message-container-combine';
         newMode.innerHTML = '<p class="message-combine-time">' + messageMoment + '</p><p class="message-combine">' + data.message + '</p>'
       }
-      document.getElementById('messages').appendChild(newMode);
+      document.getElementById('messages').prepend(newMode);
     });
     
     socket.on('join_room_announcement', function (data) {
       const newMode = document.createElement('div');
       newMode.innerHTML = data.username + ' has joined';
-      document.getElementById('messages').appendChild(newMode);
+      document.getElementById('messages').prepend(newMode);
     });
     
     $.ajax({
@@ -155,7 +155,7 @@
             newMode.className = 'message-container-combine';
             newMode.innerHTML = '<p class="message-combine-time">' + messageMoment.format('h:mm A') + '</p><p class="message-combine">' + item.message + '</p>';
           }
-          document.getElementById('messages').appendChild(newMode);
+          document.getElementById('messages').prepend(newMode);
         });
       } 
     });
