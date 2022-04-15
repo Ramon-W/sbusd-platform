@@ -12,6 +12,10 @@ $(document).ready(function(){
         $(this).closest("form").submit();
     }
   });
+  $(".message-container-combine").hover(function() {
+    $(this).css("background-color", "red");
+      //.find(".message-combine-time").css("visibility", "visible");
+  });
   $(".space").click(function() {
     $.ajax({
       type: "POST",
@@ -23,9 +27,5 @@ $(document).ready(function(){
         alert(JSON.stringify(result));
       } 
     });
-  });
-  $(".message-container-combine").hover(function() {
-    $(this).css("color", "red");
-      //.find(".message-combine-time").css("visibility", "visible");
   });
 });
