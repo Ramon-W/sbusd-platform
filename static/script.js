@@ -1,6 +1,10 @@
 $(document).ready(function(){
   var chatDiv = document.getElementById("chat");
-
+  var element = document.getElementById("submit"); //grab the element
+  element.onclick = function() { 
+    chatDiv.scrollTop = chatDiv.scrollHeight; 
+  }
+  
   var textarea = document.getElementById("message_input");
   var limit = 200;
   textarea.oninput = function() {
@@ -12,7 +16,8 @@ $(document).ready(function(){
         e.preventDefault();
     
         $(this).closest("form").submit();
-        chatDiv.scrollTop = chatDiv.scrollHeight;
+        chatDiv.scrollTop = chatDiv.scrollHeight; 
+//       put placeholder message (message is loading but is faded out to account for lag time or disconnected if wanted)
     }
   });
   $(".space").click(function() {
