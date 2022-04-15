@@ -38,7 +38,7 @@ $(document).ready(function(){
       } 
     });
   });
-  $('.message-container-combine').on('mouseenter', function() {
+  $(document).on('click', '.message-container-combine', function(){
     $(this).hide();
   });
 });
