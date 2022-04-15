@@ -4,8 +4,8 @@ $(document).ready(function(){
   element.onclick = function() { 
     chatDiv.scrollTop = chatDiv.scrollHeight; 
   }
-  $('#chat').scroll(function() {
-    if ($('#chat').scrollTop() == 0) {
+  $('#chat').scroll(function() { //$('#chat').scrollTop() + $('#chat').height();
+    if ($('#chat').scrollBottom() == 0) {
         alert('top of the div');
     }
   });
