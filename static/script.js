@@ -3,7 +3,7 @@ $(document).ready(function(){
   var chatElement = document.getElementById("chat")
   function scrollToTop() {
     // Scroll to top logic
-    rootElement.scrollTo({
+    chatElement.scrollTo({
       top: 0,
       behavior: "smooth"
     })
