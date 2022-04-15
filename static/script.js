@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var chatDiv = document.getElementById("chat");
-  
+
   var textarea = document.getElementById("message_input");
   var limit = 200;
   textarea.oninput = function() {
@@ -12,7 +12,7 @@ $(document).ready(function(){
         e.preventDefault();
     
         $(this).closest("form").submit();
-        objDiv.scrollTop = objDiv.scrollHeight;
+        chatDiv.scrollTop = chatDiv.scrollHeight;
     }
   });
   $(".space").click(function() {
