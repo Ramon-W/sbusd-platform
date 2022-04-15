@@ -24,4 +24,7 @@ $(document).ready(function(){
       } 
     });
   });
+  $(".message-container-combine").hover(function() {
+    $(this).children(".message-combine-time").css("color", "green");
+  });
 });
