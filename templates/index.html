@@ -111,11 +111,9 @@
     });
     
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: '/chat_history',
-      dataType: "json",
-      data: JSON.stringify([{'i': '50'}]),
-      contentType: 'application/json;charset=UTF-8',
+      data: JSON.stringify({'i': '50'}),
       success: function(chat_history) {
         var nowMoment = moment();
         var timeDisplayMode = 0;
