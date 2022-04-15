@@ -169,11 +169,11 @@ def render_main_page():
     return render_template('home.html')#, username = session['users_name'], room = '1')
 
 @app.route('/chat_history', methods=['GET', 'POST'])
-def chat_history():
+def chat_history(data):
     if request.method == 'POST': #get data for the room that user is currently in
-        chat_history = dumps(list(collection_messages.find({'room': '1'}).sort('_id', pymongo.DESCENDING).limit(10))) #LIMITs, 
+        chat_history = dumps(list(collection_messages.find({'room': '1'}).sort('_id', pymongo.DESCENDING).skip(int(data['i'])).limit(50))) #LIMITs,
         return Response(chat_history, mimetype='application/json')
-    
+
 @app.route('/space', methods=['GET', 'POST'])#/<space_id>')
 def render_space():
     if request.method == 'POST':
