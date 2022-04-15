@@ -24,4 +24,12 @@ $(document).ready(function(){
       } 
     });
   });
+  $(".message-container-combine").on({
+    mouseenter: function () {
+      $(this).find(".message-combine-time").css("visibility", "visible");
+    },
+    mouseleave: function () {
+      $(this).find(".message-combine-time").css("visibility", "hidden");
+    }
+  });
 });
