@@ -114,7 +114,7 @@
       type: 'POST',
       url: '/chat_history',
       dataType: "json",
-      data: JSON.stringify([{'space_i': 'test'}]), //JSOn.stringify
+      data: JSON.stringify({'space_i': 'test'}),
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
         var nowMoment = moment();
