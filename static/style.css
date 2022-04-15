@@ -96,6 +96,10 @@ img { /* make images and create button undraggable and unhighlitable*/
   margin-bottom: 0px;
   
 }
+.datetime {
+  font-size: 10px;
+  opacity: 0.9;
+}
 .message {
   margin-bottom: 2px;
   padding: 0;
@@ -135,7 +139,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   -ms-user-select: none;
   user-select: none;
   padding: 0;
-  padding-top: 5px;
+  padding-top: 6px;
   margin: 0;
   white-space: initial;
   word-break: break-all;
@@ -144,6 +148,7 @@ img { /* make images and create button undraggable and unhighlitable*/
   grid-column: 1;
   grid-row: 1;
   visibility: hidden;
+  opacity: 0.9;
 }
 .message-combine {
   padding: 2px;
