@@ -13,8 +13,8 @@ $(document).ready(function(){
     }
   });
   $(".message-container-combine").hover(function() {
-    $(this).hide()
-  }
+    $(this).hide();
+  });
   $(".space").click(function() {
     $.ajax({
       type: "POST",
