@@ -118,10 +118,10 @@
         var nowMoment = moment();
         var timeDisplayMode = 0;
         chat_history.forEach(function(item) {
+          var messageMoment = moment(item.datetime).local();
           const newMode = document.createElement('div');
           if (item.combine == 'false') {
             newMode.className = 'message-container';
-            var messageMoment = moment(item.datetime).local();
             var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
             if (timeDisplayMode == 0) {
               if (timeDifference >= 2) {
