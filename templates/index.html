@@ -61,6 +61,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
   <script type="text/javascript" charset="utf-8">
     var socket = io();
+    var chat_history_skip = 0;
     //let last_message = '';
     
     socket.on('connect', function() {
@@ -114,9 +115,10 @@
       type: 'POST',
       url: '/chat_history',
       dataType: "json",
-      data: JSON.stringify({'i': '1'}),
+      data: JSON.stringify({'i': String(chat_history_skip)}),
       contentType: 'application/json;charset=UTF-8',
       success: function(chat_history) {
+        chat_history_skip += 50;
         var nowMoment = moment();
         var timeDisplayMode = 0;
         chat_history.forEach(function(item) {
