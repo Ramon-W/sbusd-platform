@@ -63,6 +63,10 @@
     var socket = io();
     //let last_message = '';
     
+    $(".message-container-combine").hover(function() {
+      $(this).hide();
+    });
+    
     socket.on('connect', function() {
       socket.emit('join_room', {
         room: '{{ room }}'
