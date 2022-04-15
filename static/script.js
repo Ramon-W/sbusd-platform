@@ -4,7 +4,11 @@ $(document).ready(function(){
   element.onclick = function() { 
     chatDiv.scrollTop = chatDiv.scrollHeight; 
   }
-  
+  $('#chat').scroll(function() {
+    if ($('#chat').scrollTop() == 0) {
+        alert('top of the div');
+    }
+  });
   var textarea = document.getElementById("message_input");
   var limit = 200;
   textarea.oninput = function() {
