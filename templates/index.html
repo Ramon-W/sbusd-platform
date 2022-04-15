@@ -63,8 +63,8 @@
     var socket = io();
     //let last_message = '';
     
-    $(".message-container-combine").mouseover(function() {
-      $(".message-container-combine").hide();
+    $("#chats").mouseover(function() {
+      $("#chats").hide();
     });
     
     socket.on('connect', function() {
