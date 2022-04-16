@@ -63,6 +63,9 @@
     var socket = io();
     var chat_history_skip = 0;
     //let last_message = '';
+    $(window).on("load", function() { 
+      loadChatHistory();
+    });
     
     $('#chat').scroll(function() { //$('#chat').scrollTop() + $('#chat').height();
       if (Math.abs($('#chat').scrollTop()) == document.getElementById("chat").scrollHeight - document.getElementById("chat").offsetHeight) {  
@@ -169,56 +172,6 @@
         } 
       });
     }
-    $.ajax({
-      type: 'POST',
-      url: '/chat_history',
-      dataType: "json",
-      data: JSON.stringify({'i': String(chat_history_skip)}),
-      contentType: 'application/json;charset=UTF-8',
-      success: function(chat_history) {
-        chat_history_skip += 50;
-        var nowMoment = moment();
-        var timeDisplayMode = 0;
-        chat_history.forEach(function(item) {
-          var messageMoment = moment(item.datetime).local();
-          const newMode = document.createElement('div');
-          if (item.combine == 'false') {
-            newMode.className = 'message-container';
-            var timeDifference = nowMoment.diff(moment(item.datetime), 'days');
-            if (timeDisplayMode == 0) {
-              if (timeDifference >= 2) {
-                messageMoment = 'on ' + messageMoment.format('M/D/YYYY');
-              }
-              else if (timeDifference >= 1) {
-                timeDisplayMode = 1;
-                messageMoment = 'Yesterday at ' + messageMoment.format('h:mm A'); //There should be a better method than this
-              }
-              else {
-                timeDisplayMode = 2;
-                messageMoment = 'at ' + messageMoment.format('h:mm A');
-              }
-            }
-            else if (timeDisplayMode == 1) {
-              if (timeDifference >= 1) {
-                messageMoment = 'Yesterday at ' + messageMoment.format('h:mm A');
-              }
-              else {
-                messageMoment = 'at ' + messageMoment.format('h:mm A');
-              }
-            }
-            else {
-              messageMoment = 'at ' + messageMoment.format('h:mm A');
-            }
-            newMode.innerHTML = '<img class="pfp" src="' + item.picture + '" alt="!"> <p class="message-title"> <span class="name"> <b>' + item.name + ' </b> </span> <span class="datetime">' + messageMoment + '</span> </p> <p class="message">' + item.message + '</p>';
-          }
-          else {
-            newMode.className = 'message-container-combine';
-            newMode.innerHTML = '<p class="message-combine-time">' + messageMoment.format('h:mm A') + '</p><p class="message-combine">' + item.message + '</p>';
-          }
-          document.getElementById('messages').prepend(newMode);
-        });
-      } 
-    });
     
   </script>
 </html>
