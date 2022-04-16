@@ -5,8 +5,7 @@ $(document).ready(function(){
     chatDiv.scrollTop = chatDiv.scrollHeight; 
   }
   $('#chat').scroll(function() { //$('#chat').scrollTop() + $('#chat').height();
-    alert($('#chat').scrollTop());
-    if ($('#chat').scrollTop() == $('#chat').height()) {
+    if ($('#chat').scrollTop() + $('#chat').scrollHeight() >= -1) {
         alert('top of the div');
     }
   });
